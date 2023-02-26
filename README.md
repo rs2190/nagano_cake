@@ -1,24 +1,9 @@
-# README
+# DMM WEBCAMPコンテンツ課題
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## 就業両立コース(クラウド必須)_応用知識学習フェーズver1.3 実装
 
-Things you may want to cover:
+# rubyバージョン
+- ruby 3.1.2p20 (2022-04-12 revision 4491bb740a) [x86_64-linux]
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+# railsバージョン
+- Rails 6.1.7.2
