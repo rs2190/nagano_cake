@@ -18,5 +18,9 @@ module NaganoCake
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
+
+    # [Add] 2023/02/26 Railsアプリケーション日本語対応（国際化【i18n】)
+    config.i18n.default_locale = :ja
+
   end
 end
