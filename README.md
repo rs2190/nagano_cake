@@ -11,3 +11,4 @@
 ### Gemfile (bundle install)
 - devise
 - pry-rails
+- enum_help
