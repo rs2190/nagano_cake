@@ -58,3 +58,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 #devise 2023/02/26
 gem 'devise'
+#enum_help 2023/02/26
+gem "enum_help"
