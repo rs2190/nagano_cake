@@ -22,3 +22,11 @@
           in_production: "製作中"
           preparing_to_ship: "発送準備中"
           sent: "発送済み"
+
+      # [Add] 2023/02/26 orderdetailモデルに製作ステータスのenum実装
+      order_detail:
+        making_status:
+          cannot_start: "着手不可"
+          waiting_for_payment: "製作待ち"
+          in_production: "製作中"
+          completion_of_production: "製作完了"
