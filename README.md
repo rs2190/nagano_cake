@@ -7,3 +7,7 @@
 
 # railsバージョン
 - Rails 6.1.7.2
+
+# Gemfile (bundle install)
+- devise
+- pry-rails
