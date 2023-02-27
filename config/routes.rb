@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+
+  #　[Add] 2023/02/27 トップページ、アバウトページ画面のみ実装
+  root to:  'public/homes#top'
+  get 'about'  => 'public/homes#about', as: 'about'
+
+  namespace :public do
+
+  end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
   # # 【顧客用】
@@ -25,7 +33,7 @@ Rails.application.routes.draw do
   get 'admin' => 'admin/homes#top', as: 'admin_home_top'
 
   namespace :admin do
-    # get 'admin/homes#top', as: 'homes_top'
+
   end
 
 end
