@@ -21,4 +21,11 @@ Rails.application.routes.draw do
     sessions: "admin/sessions"
   }
 
+  #　[Add] 2023/02/27 管理者トップページ(注文履歴一覧)画面のみ実装
+  get 'admin' => 'admin/homes#top', as: 'admin_home_top'
+
+  namespace :admin do
+    # get 'admin/homes#top', as: 'homes_top'
+  end
+
 end
