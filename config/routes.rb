@@ -63,8 +63,10 @@ Rails.application.routes.draw do
     resources :items , only: [:index, :new, :create, :show, :edit, :update]
     # [Add] 2023/02/28 admin/genres routing実装
     resources :genres , only: [:index, :create, :edit, :update]
-     # [Add] 2023/02/28 admin/customers routing実装
+    # [Add] 2023/02/28 admin/customers routing実装
     resources :customers , only: [:index, :show, :edit, :update]
+    # [Add] 2023/02/28 admin/orders routing実装
+    resources :orders , only: [:show, :update]
 
   end
 
