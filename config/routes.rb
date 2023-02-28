@@ -1,13 +1,5 @@
 Rails.application.routes.draw do
 
-  namespace :public do
-    get 'orders/new'
-    get 'orders/confirm'
-    get 'orders/thanks'
-    get 'orders/create'
-    get 'orders/index'
-    get 'orders/show'
-  end
   #　[Add] 2023/02/27 トップページ、アバウトページ画面のみ実装
   #  [Add & Update] 2023/02/28 ①商品一覧、商品詳細画面routing実装　②トップページ、アバウトページrouting修正
   # root to:  'public/homes#top'
@@ -35,6 +27,9 @@ Rails.application.routes.draw do
     resources :orders , only: [:new, :create, :index, :show]
     post 'orders/confirm' => 'orders#confirm', as: 'confirm'
     get 'orders/thanks' => 'orders#thanks', as: 'thanks'
+
+    # [Add] 2023/02/28 public/addresses routing実装
+    resources :addresses , only: [:index, :edit, :create, :update, :destroy]
 
   end
 
