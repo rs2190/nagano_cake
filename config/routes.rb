@@ -61,6 +61,8 @@ Rails.application.routes.draw do
   namespace :admin do
     # [Add] 2023/02/28 admin/items routing実装
     resources :items , only: [:index, :new, :create, :show, :edit, :update]
+    # [Add] 2023/02/28 admin/genres routing実装
+    resources :genres , only: [:index, :create, :edit, :update]
 
   end
 
