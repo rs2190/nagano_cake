@@ -1,12 +1,19 @@
 Rails.application.routes.draw do
 
   #　[Add] 2023/02/27 トップページ、アバウトページ画面のみ実装
-  root to:  'public/homes#top'
-  get 'about'  => 'public/homes#about', as: 'about'
+  #  [Add & Update] 2023/02/28 ①商品一覧、商品詳細画面routing実装　②トップページ、アバウトページrouting修正
+  # root to:  'public/homes#top'
+  # get 'about'  => 'public/homes#about', as: 'about'
 
-  namespace :public do
+  # namespace :public do
+  # moduleで、URLを変更せず、ファイル構成だけ指定のパスにする。
+  scope module: :public do
+    root to: 'homes#top'
+    get 'about' => 'homes#about', as: 'about'
+    resources :items , only: [:index, :show]
 
   end
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
   # # 【顧客用】
