@@ -12,6 +12,13 @@ Rails.application.routes.draw do
     get 'about' => 'homes#about', as: 'about'
     resources :items , only: [:index, :show]
 
+    # [Add] 2023/02/28 public/customers routing実装
+    get 'customers/my_page' => 'customers#show', as: 'show_customers'
+    get 'customers/information/edit'=> 'customers#edit', as: 'edit_information_customers'
+    patch 'customers/information' => 'customers#update', as: 'update_information_customers'
+    get 'customers/unsubscribe' => 'customers#unsubscribe', as: 'unsubscribe'
+    patch 'customers/goodbye' => 'customers#goodbye', as: 'goodbye'
+
   end
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
