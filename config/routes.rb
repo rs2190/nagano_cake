@@ -59,6 +59,8 @@ Rails.application.routes.draw do
   get 'admin' => 'admin/homes#top', as: 'admin_home_top'
 
   namespace :admin do
+    # [Add] 2023/02/28 admin/items routing実装
+    resources :items , only: [:index, :new, :create, :show, :edit, :update]
 
   end
 
