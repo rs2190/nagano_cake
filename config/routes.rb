@@ -19,6 +19,11 @@ Rails.application.routes.draw do
     get 'customers/unsubscribe' => 'customers#unsubscribe', as: 'unsubscribe'
     patch 'customers/goodbye' => 'customers#goodbye', as: 'goodbye'
 
+    # [Add] 2023/02/28 public/customers routing実装
+    resources :cart_items , only: [:index, :update, :destroy, :create]
+    delete 'cart_items/destroy_all' => 'cart_items#destroy_all', as: 'destroy_all'
+
+
   end
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
