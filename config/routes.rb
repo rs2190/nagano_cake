@@ -66,7 +66,10 @@ Rails.application.routes.draw do
     # [Add] 2023/02/28 admin/customers routing実装
     resources :customers , only: [:index, :show, :edit, :update]
     # [Add] 2023/02/28 admin/orders routing実装
-    resources :orders , only: [:show, :update]
+    resources :orders , only: [:show, :update] do
+       # [Add] 2023/02/28 admin/order_details routing実装
+      resources :order_details, only: [:update]
+    end
 
   end
 
