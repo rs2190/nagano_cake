@@ -24,9 +24,10 @@ Rails.application.routes.draw do
     delete 'cart_items/destroy_all' => 'cart_items#destroy_all', as: 'destroy_all'
 
     # [Add] 2023/02/28 public/orders routing実装
-    resources :orders , only: [:new, :create, :index, :show]
+    # [Add & Update] 2023/02/28 ①注文完了画面文言追加　②public/orders routing修正
     post 'orders/confirm' => 'orders#confirm', as: 'confirm'
     get 'orders/thanks' => 'orders#thanks', as: 'thanks'
+    resources :orders , only: [:new, :create, :index, :show]
 
     # [Add] 2023/02/28 public/addresses routing実装
     resources :addresses , only: [:index, :edit, :create, :update, :destroy]
