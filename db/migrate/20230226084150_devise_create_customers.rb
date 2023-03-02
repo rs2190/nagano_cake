@@ -5,6 +5,8 @@ class DeviseCreateCustomers < ActiveRecord::Migration[6.1]
     create_table :customers do |t|
 
       ## Database authenticatable
+      
+      # memo　基本的にdeviseが用意しているので、カラムの追加のみでよい。
 
       # 姓
       t.string :last_name,          null: false
@@ -15,9 +17,9 @@ class DeviseCreateCustomers < ActiveRecord::Migration[6.1]
       # 名カナ
       t.string :first_name_kana,    null: false
       # メールアドレス
-      t.string :email,              null: false #, default: ""
+      t.string :email,              null: false, default: ""
       # パスワード
-      t.string :encrypted_password, null: false #, default: ""
+      t.string :encrypted_password, null: false, default: ""
       # 郵便番号
       t.string :postal_code,        null: false
       # 住所
@@ -28,11 +30,11 @@ class DeviseCreateCustomers < ActiveRecord::Migration[6.1]
       t.boolean :is_deleted,        null: false, default: false
 
       ## Recoverable
-      # t.string   :reset_password_token
-      # t.datetime :reset_password_sent_at
+      t.string   :reset_password_token
+      t.datetime :reset_password_sent_at
 
       ## Rememberable
-      # t.datetime :remember_created_at
+      t.datetime :remember_created_at
 
       ## Trackable
       # t.integer  :sign_in_count, default: 0, null: false
@@ -57,7 +59,7 @@ class DeviseCreateCustomers < ActiveRecord::Migration[6.1]
     end
 
     add_index :customers, :email,                unique: true
-    # add_index :customers, :reset_password_token, unique: true
+    add_index :customers, :reset_password_token, unique: true
     # add_index :customers, :confirmation_token,   unique: true
     # add_index :customers, :unlock_token,         unique: true
   end

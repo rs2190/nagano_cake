@@ -5,18 +5,18 @@
 
   <div class="field">
     <%= f.label :name, "名前" %>
-    <%= f.label :last_name_kana, "(姓)" %>
-    <%= f.email_field :last_name_kana, :placeholder => "令和" %>
-    <%= f.label :last_name_kana, "(名)" %>
-    <%= f.email_field :first_name_kana, :placeholder => "道子" %>
+    <%= f.label :last_name, "(姓)" %>
+    <%= f.text_field :last_name, :placeholder => "令和" %>
+    <%= f.label :first_name, "(名)" %>
+    <%= f.text_field :first_name, :placeholder => "道子" %>
   </div>
 
   <div class="field">
     <%= f.label :name_kana, "フリガナ" %>
     <%= f.label :last_name_kana, "(セイ)" %>
-    <%= f.email_field :last_name_kana, :placeholder => "レイワ" %>
+    <%= f.text_field :last_name_kana, :placeholder => "レイワ" %>
     <%= f.label :last_name_kana, "(メイ)" %>
-    <%= f.email_field :first_name_kana, :placeholder => "ミチコ" %>
+    <%= f.text_field :first_name_kana, :placeholder => "ミチコ" %>
   </div>
 
   <div class="field">
