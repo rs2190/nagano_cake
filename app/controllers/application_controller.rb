@@ -1,5 +1,7 @@
 class ApplicationController < ActionController::Base
 
+  # "[Add] 2023/03/02 顧客の会員登録画面からCustomerモデルへ登録可能"
+
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   # サインイン後の遷移
