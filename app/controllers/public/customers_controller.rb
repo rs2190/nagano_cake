@@ -6,7 +6,8 @@ class Public::CustomersController < ApplicationController
   # 顧客のマイページ
   def show
 
-    @customer = Customer.find(current_customer.id)
+    # [Add] 2023/03/03 customerモデル取得メソッド実装
+    @customer = customer_find
 
   end
 

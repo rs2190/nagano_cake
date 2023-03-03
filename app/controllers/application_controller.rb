@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
 
-  # "[Add] 2023/03/02 顧客の会員登録画面からCustomerモデルへ登録可能"
+  # [Add] 2023/03/02 顧客の会員登録画面からCustomerモデルへ登録可能
 
   before_action :configure_permitted_parameters, if: :devise_controller?
 
@@ -41,5 +41,18 @@ class ApplicationController < ActionController::Base
     )
 
   end
+
+  # [Add] 2023/03/03 customerモデル取得メソッド実装
+  public
+
+  # customerモデルを、ログインした顧客のid（current_customer）で取得する。
+  def customer_find
+
+    Customer.find(current_customer.id)
+
+  end
+
+
+
 
 end
