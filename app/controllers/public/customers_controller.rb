@@ -18,8 +18,25 @@ class Public::CustomersController < ApplicationController
     @customer = customer_find
 
   end
-
+  
+  # [Add] 2023/03/03 顧客の登録情報更新実装
+  # 顧客の登録情報更新
   def update
+
+    @customer = customer_find
+
+    # customerモデルを更新
+    if @customer.update(customer_params)
+
+      # 更新成功後、顧客のマイページへ遷移
+      redirect_to show_customers_path
+
+    else
+
+      render :edit
+
+    end
+
   end
 
   def unsubscribe
@@ -27,4 +44,16 @@ class Public::CustomersController < ApplicationController
 
   def goodbye
   end
+
+
+  private
+
+  # ストロングパラメータ
+  def customer_params
+
+    params.require(:customer).permit(:last_name,:first_name,:last_name_kana,:first_name_kana,:postal_code,:address,:telephone_number,:email)
+
+  end
+
+
 end
