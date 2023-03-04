@@ -4,6 +4,11 @@ class Customer < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  # 1 : N　の関連付け（アソシエーション: association）
+  # [Add] 2023/03/04 customersとaddressesの 1 : N のアソシエーション実装
+  has_many :addresses, dependent: :destroy
+
+
   # "[Add] 2023/03/03 顧客のマイページ実装"
 
   # 姓 + 名
