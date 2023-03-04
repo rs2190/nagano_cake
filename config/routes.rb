@@ -13,7 +13,9 @@ Rails.application.routes.draw do
     resources :items , only: [:index, :show]
 
     # [Add] 2023/02/28 public/customers routing実装
-    get 'customers/my_page' => 'customers#show', as: 'show_customers'
+    # [Update] 2023/03/01 顧客のマイページのrouting修正
+    # get 'customers/my_page' => 'customers#show', as: 'show_customers'
+    get 'customers/my_page' => 'customers#show', as: 'my_page'
     get 'customers/information/edit'=> 'customers#edit', as: 'edit_information_customers'
     patch 'customers/information' => 'customers#update', as: 'update_information_customers'
     get 'customers/unsubscribe' => 'customers#unsubscribe', as: 'unsubscribe'

@@ -16,7 +16,9 @@ class ApplicationController < ActionController::Base
     # Customers(ユーザー)
     when Customer then
       # 顧客のマイページ
-      show_customers_path
+      # [Update] 2023/03/01 顧客のマイページのrouting修正
+      # show_customers_path
+      my_page_path
     end
   end
 
