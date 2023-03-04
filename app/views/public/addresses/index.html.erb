@@ -13,7 +13,7 @@
       </tr>
       <tr>
         <td>宛名</td>
-        <td><%= f.text_field :telephone_number, :placeholder => "令和道子" %></td>
+        <td><%= f.text_field :name, :placeholder => "令和道子" %></td>
         <td><%= f.submit '新規登録', class:"btn btn-success" %></td>
       </tr>
     </tbody>
@@ -32,10 +32,11 @@
     <tbody>
       <% @addresses.each do |f| %>
       <tr>
-        <td>f.address</td>
-        <td>f.postal_code</td>
-        <td>f.name</td>
-        <td><%= link_to "編集する", edit_address_path(f.id) %><%= link_to "削除する", address_path(f.id), method: :delete, "data-confirm" => "本当に削除しますか？" %></td>
+        <td><%= f.postal_code %></td>
+        <td><%= f.address %></td>
+        <td><%=f.name %></td>
+        <td><%= link_to "編集する", edit_address_path(f.id) %></td>
+        <td><%= link_to "削除する", address_path(f.id), method: :delete, "data-confirm" => "本当に削除しますか？" %></td>
       </tr>
       <% end %>
     </tbody>

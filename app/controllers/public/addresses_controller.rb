@@ -14,7 +14,27 @@ class Public::AddressesController < ApplicationController
   def edit
   end
 
+  # [Add] 2023/03/04 配送先の登録実装
+  # 配送先の登録
   def create
+
+    # データを受け取り新規登録するためのインスタンス作成
+    @address = Address.new(address_params)
+    # Addressモデル.会員ID = ログインしたログインした顧客のid
+    @address.customer_id = current_customer.id
+
+    # 登録時チェック
+    if @address.save
+
+      # 成功時
+      redirect_to addresses_path
+
+    else
+
+      @addresses = Address.where(customer_id: current_customer.id)
+      render :index
+    end
+
   end
 
   def update
@@ -22,4 +42,15 @@ class Public::AddressesController < ApplicationController
 
   def destroy
   end
+
+  private
+
+  # ストロングパラメータ
+  def address_params
+
+    params.require(:address).permit(:name,:postal_code,:address)
+
+  end
+
+
 end

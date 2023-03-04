@@ -32,7 +32,8 @@ class Public::CustomersController < ApplicationController
       redirect_to show_customers_path
 
     else
-
+      
+      
       render :edit
 
     end
