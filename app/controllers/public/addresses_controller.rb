@@ -62,7 +62,14 @@ class Public::AddressesController < ApplicationController
 
   end
 
+  # [Add] 2023/03/05 配送先の削除実装
+  # 配送先の削除
   def destroy
+
+     address = address_find
+     address.destroy
+     redirect_to addresses_path
+
   end
 
   private
