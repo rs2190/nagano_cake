@@ -44,7 +44,22 @@ class Public::AddressesController < ApplicationController
 
   end
 
+  # [Add] 2023/03/05 配送先の更新実装
+  # 配送先の更新
   def update
+
+    @address = address_find
+
+    if @address.update(address_params)
+
+      # 成功時
+      redirect_to addresses_path
+    else
+
+      render :edit
+
+    end
+
   end
 
   def destroy
