@@ -11,7 +11,12 @@ class Public::AddressesController < ApplicationController
 
   end
 
+  # [Add] 2023/03/05 配送先編集画面実装
+  # 配送先編集画面
   def edit
+
+    @address = Address.find(params[:id])
+
   end
 
   # [Add] 2023/03/04 配送先の登録実装
