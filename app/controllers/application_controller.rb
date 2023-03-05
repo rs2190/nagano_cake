@@ -54,7 +54,12 @@ class ApplicationController < ActionController::Base
 
   end
 
+  # [Add] 2023/03/05 addressモデル取得メソッド実装
+  # addressモデルを、リクエストパラメータで送られてきた配送先情報のidで取得する。
+  def address_find
 
+    Address.find(params[:id])
 
+  end
 
 end

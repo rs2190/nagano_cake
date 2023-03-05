@@ -15,7 +15,9 @@ class Public::AddressesController < ApplicationController
   # 配送先編集画面
   def edit
 
-    @address = Address.find(params[:id])
+    # [Add] 2023/03/05 addressモデル取得メソッド実装
+    # @address = Address.find(params[:id])
+    @address = address_find
 
   end
 
