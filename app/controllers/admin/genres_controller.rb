@@ -12,13 +12,37 @@ class Admin::GenresController < ApplicationController
 
   end
 
+  # [Add] 2023/03/06 ジャンルデータ登録実装
+  # ジャンルデータ登録
   def create
+
+    @genre = Genre.new(genre_param)
+
+    if @genre.save
+
+      redirect_to admin_genres_path
+
+    else
+
+      render :index
+
+    end
+
   end
 
   def edit
   end
 
   def update
+  end
+
+  protected
+
+  # ストロングパラメータ
+  def genre_param
+
+    params.require(:genre).permit(:name)
+
   end
 
 
