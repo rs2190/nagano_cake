@@ -30,7 +30,12 @@ class Admin::GenresController < ApplicationController
 
   end
 
+  # [Add] 2023/03/06 ジャンル編集画面実装
+  # ジャンル編集画面
   def edit
+
+    @genre =  Genre.find(params[:id])
+
   end
 
   def update
