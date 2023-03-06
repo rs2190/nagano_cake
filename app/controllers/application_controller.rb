@@ -62,4 +62,12 @@ class ApplicationController < ActionController::Base
 
   end
 
+  # [Add] 2023/03/06 genreモデル取得メソッド実装
+  # genreモデルを、リクエストパラメータで送られてきた配送先情報のidで取得する。
+  def genre_find
+
+     Genre.find(params[:id])
+
+  end
+
 end

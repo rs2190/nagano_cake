@@ -34,7 +34,9 @@ class Admin::GenresController < ApplicationController
   # ジャンル編集画面
   def edit
 
-    @genre =  Genre.find(params[:id])
+    # [Add] 2023/03/06 genreモデル取得メソッド実装
+    # @genre =  Genre.find(params[:id])
+    @genre = genre_find
 
   end
 
