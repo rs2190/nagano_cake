@@ -30,13 +30,13 @@
       </tr>
     </thead>
     <tbody>
-      <% @addresses.each do |f| %>
+      <% @addresses.each do |g| %>
       <tr>
-        <td><%= f.postal_code %></td>
-        <td><%= f.address %></td>
-        <td><%=f.name %></td>
-        <td><%= link_to "編集する", edit_address_path(f.id) %></td>
-        <td><%= link_to "削除する", address_path(f.id), method: :delete, "data-confirm" => "本当に削除しますか？" %></td>
+        <td><%= g.postal_code %></td>
+        <td><%= g.address %></td>
+        <td><%= g.name %></td>
+        <td><%= link_to "編集する", edit_address_path(g.id) %></td>
+        <td><%= link_to "削除する", address_path(g.id), method: :delete, "data-confirm" => "本当に削除しますか？" %></td>
       </tr>
       <% end %>
     </tbody>
