@@ -40,7 +40,23 @@ class Admin::GenresController < ApplicationController
 
   end
 
+  # [Add] 2023/03/06 ジャンルデータ更新実装
+  # ジャンルデータ更新
   def update
+
+    @genre = genre_find
+
+    if @genre.update(genre_param)
+
+      redirect_to admin_genres_path
+
+    else
+
+      render :edit
+
+    end
+
+
   end
 
   protected
