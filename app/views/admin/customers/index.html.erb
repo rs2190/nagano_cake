@@ -20,7 +20,13 @@
           <% end %>
         </td>
         <td><%= f.email %></td>
-        <td><%= f.is %></td>
+
+        <% if f.is_deleted %>
+        <td class = "is_deleted_true">退会</td>
+        <% else %>
+        <td class = "is_deleted_false">有効</td>
+        <% end %>
+        </td>
       </tr>
       <% end %>
     </tbody>

@@ -6,7 +6,7 @@ class Admin::CustomersController < ApplicationController
   # 顧客一覧画面
   def index
 
-    @customers = Customer.all.order(:id,"ASC")
+    @customers = Customer.all.order(id: "ASC")
 
   end
 
