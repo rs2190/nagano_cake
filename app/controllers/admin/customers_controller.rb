@@ -27,7 +27,34 @@ class Admin::CustomersController < ApplicationController
     @customer = customer_find_params
 
   end
-
+  
+  # [Add] 2023/03/07 顧客情報の更新実装
+  # 顧客情報の更新
   def update
+
+    @customer = customer_find_params
+
+    # customerモデルを更新
+    if @customer.update(customer_params)
+
+      # 更新成功後、顧客詳細画面へ遷移
+      redirect_to admin_customer_path(@customer.id)
+
+    else
+
+      render :edit
+
+    end
+
   end
+
+  private
+
+  # ストロングパラメータ
+  def customer_params
+
+    params.require(:customer).permit(:last_name,:first_name,:last_name_kana,:first_name_kana,:postal_code,:address,:telephone_number,:email,:is_deleted)
+
+  end
+
 end
