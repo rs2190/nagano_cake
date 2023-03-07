@@ -4,7 +4,7 @@
 module Constants
 
   # 空文字
-  HALF_WIDTH_SPACE = ""
+  EMPTY = ""
 
   # 半角スペース
   HALF_WIDTH_SPACE = " "

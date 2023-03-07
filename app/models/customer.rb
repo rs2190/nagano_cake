@@ -8,6 +8,9 @@ class Customer < ApplicationRecord
   # [Add] 2023/03/04 customersとaddressesの 1 : N のアソシエーション実装
   has_many :addresses, dependent: :destroy
 
+  # 定数クラス
+  include Constants
+
 
   # "[Add] 2023/03/03 顧客のマイページ実装"
 
@@ -21,7 +24,7 @@ class Customer < ApplicationRecord
   # 姓 + "□" + 名 (□は、全角スペース)
   def name_blank
 
-    last_name + "　" + first_name
+    last_name + FULL_WIDTH_SPACE + first_name
 
   end
 
@@ -35,7 +38,7 @@ class Customer < ApplicationRecord
   # 姓 + "□" + 名 (□は、全角スペース)
   def name_kana_blank
 
-    last_name_kana + "　" + first_name_kana
+    last_name_kana + FULL_WIDTH_SPACE + first_name_kana
 
   end
 

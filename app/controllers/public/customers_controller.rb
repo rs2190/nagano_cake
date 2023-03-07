@@ -18,7 +18,7 @@ class Public::CustomersController < ApplicationController
     @customer = customer_find
 
   end
-  
+
   # [Add] 2023/03/03 顧客の登録情報更新実装
   # 顧客の登録情報更新
   def update
@@ -29,11 +29,11 @@ class Public::CustomersController < ApplicationController
     if @customer.update(customer_params)
 
       # 更新成功後、顧客のマイページへ遷移
-      redirect_to show_customers_path
+      redirect_to my_page_path
 
     else
-      
-      
+
+
       render :edit
 
     end
