@@ -1,8 +1,12 @@
-<h2>会員一覧</h2>
-<table border="1" cellspacing="0" cellpadding="0">
+<h2><%= @customer.name %>さんの会員一覧</h2>
+<table>
   <tbody>
     <tr>
-      <td>会員IIDD</td>
+      <td>会員ID</td>
+      <td><%= @customer.id %></td>
+    </tr>
+    <tr>
+      <td>氏名</td>
       <td><%= @customer.name_blank %></td>
     </tr>
     <tr>
@@ -25,5 +29,21 @@
       <td>メールアドレス</td>
       <td><%= @customer.email %></td>
     </tr>
+    <tr>
+      <td>会員ステータス</td>
+      <% if @customer.is_deleted %>
+        <td class = "is_deleted_true">退会</td>
+      <% else %>
+        <td class = "is_deleted_false">有効</td>
+      <% end %>
+    </tr>
   </tbody>
 </table>
+  <table>
+    <tbody>
+      <tr>
+        <td><%= link_to "編集する", edit_admin_customer_path(@customer.id) %></td>
+        <td><%= link_to "注文履歴一覧を見る", admin_home_top_path %></td>
+      </tr>
+    </tbody>
+

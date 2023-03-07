@@ -10,7 +10,12 @@ class Admin::CustomersController < ApplicationController
 
   end
 
+  #[Add] 2023/03/07 顧客詳細画面実装
+  # 顧客詳細画面
   def show
+
+    @customer = Customer.find(params[:id])
+
   end
 
   def edit
