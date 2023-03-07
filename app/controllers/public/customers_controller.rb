@@ -28,6 +28,7 @@ class Public::CustomersController < ApplicationController
     # customerモデルを更新
     if @customer.update(customer_params)
 
+      # [Update & Fix] 2023/03/07 ①定数クラス仕様　②マイページ更新時 redirect to修正etc
       # 更新成功後、顧客のマイページへ遷移
       redirect_to my_page_path
 
