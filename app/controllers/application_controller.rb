@@ -54,6 +54,13 @@ class ApplicationController < ActionController::Base
 
   end
 
+  # customerモデルを、リクエストパラメータで送られてきた会員idで取得する。
+  def customer_find_params
+
+    Customer.find(params[:id])
+
+  end
+
   # [Add] 2023/03/05 addressモデル取得メソッド実装
   # addressモデルを、リクエストパラメータで送られてきた配送先情報のidで取得する。
   def address_find
