@@ -1,6 +1,6 @@
-<h2>会員情報編集</h2>
+<%= form_with model: @customer, url: admin_customer_path(@customer.id), method: :patch do |f| %>
+<h2><%= @customer.name %>さんの会員情報編集</h2>
 
-<%= form_with model: @customer, url: update_information_customers_path, method: :patch do |f| %>
 <table>
   <tbody>
     <tr>
@@ -32,6 +32,21 @@
     <tr>
       <td>メールアドレス</td>
       <td><%= f.email_field :email, :placeholder => "sample@example.com" %></td>
+    </tr>
+    <tr>
+      <td>会員ステータス</td>
+      <td>
+        <div>
+          <%= f.radio_button :is_deleted, false %>
+          <%= f.label :is_deleted, '有効' %>
+        </div>
+      </td>
+      <td>
+        <div>
+          <%= f.radio_button :is_deleted, true %>
+          <%= f.label :is_deleted, '退会' %>
+        </div>
+      </td>
     </tr>
   </tbody>
 </table>

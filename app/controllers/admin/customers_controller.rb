@@ -20,8 +20,12 @@ class Admin::CustomersController < ApplicationController
 
   end
 
+  # [Add] 2023/03/07 顧客編集画面実装
   # 顧客編集画面
   def edit
+
+    @customer = customer_find_params
+
   end
 
   def update
