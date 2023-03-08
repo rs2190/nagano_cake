@@ -39,7 +39,12 @@ class Admin::ItemsController < ApplicationController
 
   end
 
+
+  # 商品詳細画面
   def show
+
+    @item = item_find
+
   end
 
   def edit

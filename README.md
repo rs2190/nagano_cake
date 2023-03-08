@@ -12,3 +12,4 @@
 - devise
 - pry-rails
 - enum_help
+- image_processing , '~> 1.2'
