@@ -62,7 +62,7 @@ class ApplicationController < ActionController::Base
   end
 
   # [Add] 2023/03/05 addressモデル取得メソッド実装
-  # addressモデルを、リクエストパラメータで送られてきた配送先情報のidで取得する。
+  # addressモデルを、リクエストパラメータで送られてきた配送先情報idで取得する。
   def address_find
 
     Address.find(params[:id])
@@ -70,11 +70,20 @@ class ApplicationController < ActionController::Base
   end
 
   # [Add] 2023/03/06 genreモデル取得メソッド実装
-  # genreモデルを、リクエストパラメータで送られてきた配送先情報のidで取得する。
+  # genreモデルを、リクエストパラメータで送られてきたジャンルidで取得する。
   def genre_find
 
      Genre.find(params[:id])
 
   end
+
+  # [Add] 2023/03/08 itemモデル取得メソッド実装
+  # itemモデルを、リクエストパラメータで送られてきた商品idで取得する。
+  def item_find
+
+    Item.find(params[:id])
+
+  end
+
 
 end
