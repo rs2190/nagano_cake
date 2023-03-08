@@ -55,7 +55,22 @@ class Admin::ItemsController < ApplicationController
 
   end
 
+  # [Add] 2023/03/08 商品情報の更新実装
+  # 商品情報の更新
   def update
+
+    @item = item_find
+
+    if @item.update(item_param)
+
+      redirect_to admin_items_path
+
+    else
+
+      render :edit
+
+    end
+
   end
 
   private
