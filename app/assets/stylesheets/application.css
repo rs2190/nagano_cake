@@ -19,18 +19,19 @@ thead {
 
 }
 
-.is_deleted_true, .is_deleted_false{
+[class^="is_"] {
 
   font-weight: bolder
 }
 
 
-.is_deleted_true {
+
+.is_deleted_true, .is_active_false {
 
   color: grey
 }
 
-.is_deleted_false {
+.is_deleted_false, .is_active_true {
 
   color: limegreen
 }

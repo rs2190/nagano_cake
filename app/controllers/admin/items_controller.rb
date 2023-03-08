@@ -3,8 +3,12 @@ class Admin::ItemsController < ApplicationController
    # [Add] 2023/03/08 商品新規登録画面実装
   before_action :authenticate_admin!, only: [:index, :new, :show, :edit]
 
-
+  # [Add] 2023/03/08 商品一覧画面実装
+  # 商品一覧
   def index
+
+    @items = Item.all.order(id: "ASC")
+
   end
 
   # [Add] 2023/03/08 商品新規登録画面実装
