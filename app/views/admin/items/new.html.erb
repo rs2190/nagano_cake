@@ -1,6 +1,7 @@
 <h2>商品新規登録</h2>
 
-<%= form_with model: @item, url: new_admin_item_path, method: :post do |f| %>
+<!--%= render 'users/info', user: @user %-->
+<%= form_with model: @item, url: admin_items_path, method: :post do |f| %>
 <div>
   <table>
     <tbody>
@@ -22,7 +23,7 @@
       </tr>
        <tr>
         <td>税抜価格</td>
-        <td><%= f.text_field :name, :placeholder => "1000" %>円</td>
+        <td><%= f.text_field :price, :placeholder => "1000" %>円</td>
       </tr>
       <tr>
       <td>販売ステータス</td>
