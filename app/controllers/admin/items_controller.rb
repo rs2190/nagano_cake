@@ -39,7 +39,7 @@ class Admin::ItemsController < ApplicationController
 
   end
 
-  #[Add] 2023/03/08 商品詳細画面実装etc
+  # [Add] 2023/03/08 商品詳細画面実装etc
   # 商品詳細画面
   def show
 
@@ -47,9 +47,12 @@ class Admin::ItemsController < ApplicationController
 
   end
 
-
+  # [Add] 2023/03/08 商品編集画面実装
   # 商品編集画面
   def edit
+
+    @item = item_find
+
   end
 
   def update
