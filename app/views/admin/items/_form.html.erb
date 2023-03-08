@@ -1,0 +1,56 @@
+<% if controller_name == 'items'%>
+  <% if action_name == 'new' || action_name == 'edit' %>
+    <div>
+      <table>
+        <tbody>
+          <tr>
+            <td>商品画像</td>
+            <td><%= f.file_field :image, accept: "image/*" %></td>
+          </tr>
+          <tr>
+            <td>商品名</td>
+            <td><%= f.text_field :name, :placeholder => "商品名" %></td>
+          </tr>
+          <tr>
+            <td>商品説明</td>
+            <td><%= f.text_area :introduction, :placeholder => "ここに説明分を記述します" %></td>
+          </tr>
+          <tr>
+            <td>ジャンル</td>
+             <% if action_name == 'new' %>
+              <td><%= f.select :genre_id, options_from_collection_for_select(Genre.all, :id, :name), include_blank: '-- 選択してください --' %></td>
+            <% else %>
+              <td><%= f.select :genre_id, options_from_collection_for_select(Genre.all, :id, :name) %></td>
+            <% end %>
+          </tr>
+           <tr>
+            <td>税抜価格</td>
+            <td><%= f.text_field :price, :placeholder => "1000" %>円</td>
+          </tr>
+          <tr>
+          <td>販売ステータス</td>
+          <td>
+            <div>
+              <%= f.radio_button :is_active, true %>
+              <%= f.label :is_active, '販売中' %>
+            </div>
+          </td>
+          <td>
+            <div>
+              <%= f.radio_button :is_active, false %>
+              <%= f.label :is_active, '販売停止中' %>
+            </div>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+    <div>
+      <% if action_name == 'new' %>
+        <%= f.submit '新規登録', class:"btn btn-success" %>
+      <% else %>
+        <%= f.submit '変更を保存', class:"btn btn-success" %>
+      <% end %>
+    </div>
+  <% end %>
+<% end %>
