@@ -1,5 +1,6 @@
 class Public::ItemsController < ApplicationController
 
+  # [Add] 2023/03/09 商品一覧画面追加etc
   # 商品一覧画面
   def index
 
@@ -19,6 +20,8 @@ class Public::ItemsController < ApplicationController
 
   end
 
+  # [Add] 2023/03/09 商品詳細画面追加
+  # 商品詳細
   def show
 
     @genres = genre_all_asc

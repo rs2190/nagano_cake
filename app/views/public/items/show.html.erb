@@ -4,7 +4,8 @@
     <%= image_tag @item.get_image(250,250) %>
   </div>
   <div class = "items_area">
-    <%= form_with model: @cart_item, url: cart_items_path, method :post do |f| %>
+    <%= form_with model: @cart_item, url: cart_items_path, method: :post do |f| %>
+    <%= f.hidden_field :item_id, :value => @item.id %>
     <%= f.hidden_field :amount, :value => @cart_item.amount %>
     <table>
       <tbody>
