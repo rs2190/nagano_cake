@@ -92,4 +92,12 @@ class ApplicationController < ActionController::Base
 
   end
 
+  # [Add] 2023/03/09 itemモデル取得メソッド実装
+  # itemモデルを、リクエストパラメータで送られてきた商品idで取得する。
+  def cart_item_find
+
+    CartItem.find(params[:id])
+
+  end
+
 end

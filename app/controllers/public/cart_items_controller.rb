@@ -12,10 +12,28 @@ class Public::CartItemsController < ApplicationController
 
   end
 
+  # [Add] 2023/03/09 カート内商品データ更新
+  # カート内商品データ更新
   def update
+
+    @cart_item = cart_item_find
+
+    if @cart_item.update(amount: cart_item_params[:amount].to_i)
+
+      redirect_to cart_items_path
+
+    else
+
+      @cart_items = CartItem.where(customer_id: current_customer.id).order(id: "ASC")
+      @total = 0
+      render :index
+
+    end
+
   end
 
   def destroy
+
   end
 
   def destroy_all
