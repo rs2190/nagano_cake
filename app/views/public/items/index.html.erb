@@ -1,2 +1,21 @@
-<h2>商品一覧</h2>
-<p>Find me in app/views/public/items/index.html.erb</p>
+<div class = "items_main">
+    <%= render 'genres_sidebar', genres: @genres %>
+  <diV>
+    <h2>商品一覧</h2>
+      <table>
+        <tbody>
+          <% @items.each do |f| %>
+          <tr>
+            <td>
+              <%= link_to item_path(f.id) do %>
+                <%= image_tag f.get_image(100,100) %>
+              <% end %>
+            </td>
+            <td><%= f.name %></td>
+            <td>￥<%= f.get_price_delimited %></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+  </diV>
+</div>

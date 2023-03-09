@@ -36,14 +36,19 @@ thead {
 
 .items_main {
 
-  width: 100%; /* 横幅30% */
+  width: 100%; /* 横幅100% */
   display: flex;
 
 }
 
 .items_image {
 
-  width: 40%; /* 横幅30% */
+  width: 40%; /* 横幅40% */
+}
+
+.genres_sidebar {
+
+  width: 20%; /* 横幅30% */
 }
 
 .items_area {
