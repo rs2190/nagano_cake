@@ -42,7 +42,14 @@ class Public::CartItemsController < ApplicationController
 
   end
 
+  # [Add] 2023/03/09 カート内商品データ削除(全て)更新
+  # カート内商品データ削除(全て)
   def destroy_all
+
+    cart_items = CartItem.where(customer_id: current_customer.id)
+    cart_items.destroy_all
+    redirect_to cart_items_path
+
   end
 
   # カート内商品データ追加

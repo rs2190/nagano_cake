@@ -22,8 +22,8 @@ Rails.application.routes.draw do
     patch 'customers/goodbye' => 'customers#goodbye', as: 'goodbye'
 
     # [Add] 2023/02/28 public/customers routing実装
-    resources :cart_items , only: [:index, :update, :destroy, :create]
     delete 'cart_items/destroy_all' => 'cart_items#destroy_all', as: 'destroy_all'
+    resources :cart_items , only: [:index, :update, :destroy, :create]
 
     # [Add] 2023/02/28 public/orders routing実装
     # [Add & Update] 2023/02/28 ①注文完了画面文言追加　②public/orders routing修正
