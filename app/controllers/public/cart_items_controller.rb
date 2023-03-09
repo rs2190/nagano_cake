@@ -26,15 +26,34 @@ class Public::CartItemsController < ApplicationController
 
     chack = false
 
-    if CartItem.find_by(customer_id: current_customer.id, item_id: cart_item_params[:item_id])
+    # [Add] 2023/03/09 数量更新処理追加
+    # カート内に、過去に商品した商品があるか？
+    @Cart_Item = CartItem.find_by(customer_id: current_customer.id, item_id: cart_item_params[:item_id])
+
+    if @Cart_Item
+
+      # 既存データの数量
+      update_amount = @Cart_Item.amount.to_i
+      # 既存データの数量に、今回追加する数量と加算する。
+      update_amount += cart_item_params[:amount].to_i
+
+      # 加算した数量を更新
+      if @Cart_Item.update(amount: update_amount)
+
+        # 更新成功時
+        chack = true
+
+      end
 
     else
 
+      # 存在しない場合は、作成。
       @cart_item = CartItem.new(cart_item_params)
       @cart_item.customer_id = current_customer.id
 
       if @cart_item.save
 
+        # 登録（更新）成功時の遷移
         chack = true
 
       end
@@ -42,6 +61,8 @@ class Public::CartItemsController < ApplicationController
     end
 
     if chack
+
+      #更新登録成功時の
       redirect_to cart_items_path
     else
       render :'public/items#show'

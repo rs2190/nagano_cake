@@ -24,7 +24,9 @@
           <td><%= form.select :amount, *[1..10] %> <%= form.submit '編集' %></td>
         <% end %>
         <td><%= f.get_subtotal_delimited %></td>
-        <td><%= link_to '削除', cart_item_path(f.id), method: :delete %></td>
+        <%= form_with model: f, url: cart_item_path(f.id), method: :delete do |forms| %>
+          <td><%= forms.submit '削除する' %></td>
+        <% end %>
       </tr>
       <% end %>
     </tbody>
@@ -32,7 +34,7 @@
 </diV>
 
 <div>
-  <%= link_to '買い物を続ける', destroy_all_path, method: :delete %>
+  <%= link_to '買い物を続ける', items_path %>
   <table>
     <tbody>
       <tr>
