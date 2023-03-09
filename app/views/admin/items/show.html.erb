@@ -24,7 +24,7 @@
             税込価格<br>
             (税抜価格)
           </td>
-          <td><%= @item.get_tax_included_price %> (<%= @item.price %>) 円</td>
+          <td><%= @item.get_tax_included_price_delimited %> (<%= @item.get_price_delimited %>) 円</td>
         </tr>
         <tr>
           <td>販売ステータス</td>

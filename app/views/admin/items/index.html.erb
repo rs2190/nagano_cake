@@ -20,7 +20,7 @@
             <%= f.name %>
           <% end %>
         </td>
-        <td><%= f.price %></td>
+        <td><%= f.get_price_delimited %></td>
         <td><%= f.genre.name %></td>
         <% if f.is_active %>
           <td class = "is_active_true">販売中</td>

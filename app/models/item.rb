@@ -35,4 +35,19 @@ class Item < ApplicationRecord
 
   end
 
+  # [Add] 2023/03/09 価格コンマ付きメソッド実装
+  # 税抜価格（コンマ付き）
+  def get_price_delimited
+
+    price.to_s(:delimited)
+
+  end
+
+    # 税込価格（コンマ付き）
+  def get_tax_included_price_delimited
+
+    get_tax_included_price.to_s(:delimited)
+
+  end
+
 end
