@@ -32,7 +32,13 @@ class Public::CartItemsController < ApplicationController
 
   end
 
+  # [Add] 2023/03/09 カート内商品データ削除(一商品)更新
+  # カート内商品データ削除(一商品)
   def destroy
+
+    cart_item = cart_item_find
+    cart_item.destroy
+    redirect_to cart_items_path
 
   end
 
