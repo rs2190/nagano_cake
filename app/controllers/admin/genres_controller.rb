@@ -7,7 +7,10 @@ class Admin::GenresController < ApplicationController
   def index
 
     @genre = Genre.new
-    @genres = Genre.all.order(id: "ASC")
+
+    # # [Add] 2023/03/09 genreモデル全件取得メソッド実装
+    # @genres = Genre.all.order(id: "ASC")
+    @genres = genre_all_asc
 
 
   end

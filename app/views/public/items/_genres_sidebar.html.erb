@@ -1,0 +1,20 @@
+<div>
+  <table>
+    <thead>
+      <tr>
+        <th>ジャンル</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <% items.each do |i| %>
+        <td>
+          <%= link_to items_path  do %>
+            <%= i.name %>
+          <% end %>
+        </td>
+        <% end %>
+      </tr>
+    </tbody>
+  </table>
+</div>

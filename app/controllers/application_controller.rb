@@ -77,6 +77,13 @@ class ApplicationController < ActionController::Base
 
   end
 
+  # [Add] 2023/03/09 genreモデル全件取得メソッド実装
+  # genreモデルを全件取得（昇順）。
+  def genre_all_asc
+
+    Genre.all.order(id: "ASC")
+  end
+
   # [Add] 2023/03/08 itemモデル取得メソッド実装
   # itemモデルを、リクエストパラメータで送られてきた商品idで取得する。
   def item_find
@@ -84,6 +91,5 @@ class ApplicationController < ActionController::Base
     Item.find(params[:id])
 
   end
-
 
 end
