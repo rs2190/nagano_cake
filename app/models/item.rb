@@ -8,6 +8,10 @@ class Item < ApplicationRecord
   # 1 : N　の関連付け（アソシエーション: association）
   belongs_to :genre
 
+  # [Add] 2023/03/09 カート内商品データ追加・カート内商品一覧画面追加etc
+  # 1 : N　の関連付け（アソシエーション: association）
+  has_many :cart_items
+
   # [Add] 2023/03/08 商品詳細画面実装etc
   # 商品画像のgetterメソッド。<br>画像サイズ指定可能(width(integer):横,height(integer):高さ)(px)
   def get_image(width, height)
