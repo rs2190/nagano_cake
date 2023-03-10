@@ -12,7 +12,4 @@ module Constants
   # 全角スペース
   FULL_WIDTH_SPACE = "　"
 
-  # <br>タグ
-  TAG_BR = "<br>"
-
 end

@@ -16,6 +16,7 @@ class Customer < ApplicationRecord
 
   # [Update & Fix] 2023/03/07 ①定数クラス仕様　②マイページ更新時 redirect to修正etc
   # 定数クラス
+  # config/initializers/constants.rb
   include Constants
 
 
@@ -46,6 +47,13 @@ class Customer < ApplicationRecord
   def name_kana_blank
 
     last_name_kana + FULL_WIDTH_SPACE + first_name_kana
+
+  end
+
+  # 〒 + 郵便番号 + " " + 住所
+  def get_my_address
+
+    "〒" + postal_code + HALF_WIDTH_SPACE + address
 
   end
 
