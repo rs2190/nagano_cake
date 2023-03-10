@@ -11,6 +11,9 @@ class Customer < ApplicationRecord
   # [Add] 2023/03/09 カート内商品データ追加・カート内商品一覧画面追加etc
   has_many :cart_items, dependent: :destroy
 
+  # [Add] 2023/03/10 customersとordersの 1 : N のアソシエーション実装
+  has_many :orders, dependent: :destroy
+
   # [Update & Fix] 2023/03/07 ①定数クラス仕様　②マイページ更新時 redirect to修正etc
   # 定数クラス
   include Constants
