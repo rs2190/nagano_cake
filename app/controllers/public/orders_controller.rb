@@ -8,6 +8,8 @@ class Public::OrdersController < ApplicationController
 
   end
 
+  # [Add] 2023/03/11 注文情報確認画面実装
+  # 注文情報確認画面
   def confirm
 
     check_adress(params[:order][:select_address])
@@ -38,6 +40,7 @@ class Public::OrdersController < ApplicationController
 
   end
 
+  # お届け先分岐条件処理
   def check_adress(select_address)
 
     if select_address == "0"
