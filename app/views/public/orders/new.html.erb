@@ -1,6 +1,6 @@
 <h2>注文情報入力</h2>
 
-<%= form_with model: @order, method: :post do |f| %>
+<%= form_with model: @order, url: confirm_path,  method: :post do |f| %>
 <div>
   <h3>支払方法</h3>
   <div>
@@ -17,20 +17,20 @@
   <h3>お届け先</h3>
   <div>
     <diV>
-      <%= f.radio_button :address, 0 , {:checked => true} %>
-      <%= f.label :address_my_address, "ご自身の住所" %><br>
+      <%= f.radio_button :select_address, 0 , {:checked => true} %>
+      <%= f.label :select_address_my_address, "ご自身の住所" %><br>
       <%= current_customer.get_my_address %><br>
       <%= current_customer.name %>
     </diV>
   </div>
   <diV>
-    <%= f.radio_button :addressee, 1  %>
-    <%= f.label :address_addresses, "登録済住所から選択" %><br>
+    <%= f.radio_button :select_address, 1  %>
+    <%= f.label :select_address_addresses, "登録済住所から選択" %><br>
     <%= f.select :address_id, options_from_collection_for_select(Address.all, :id, :get_address_display) %>
   </diV>
   <diV>
-    <%= f.radio_button :addressee, 2  %>
-    <%= f.label :address_new_addresses, "新しいお届け先" %>
+    <%= f.radio_button :select_address, 2  %>
+    <%= f.label :select_address_new_addresses, "新しいお届け先" %>
     <table>
       <tbody>
         <tr>
