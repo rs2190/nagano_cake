@@ -22,9 +22,12 @@ class Public::OrdersController < ApplicationController
   def thanks
   end
 
+  # [Add] 2023/03/12 注文確定処理実装
+  # 注文確定処理
   def create
 
     create_order
+    redirect_to thanks_path
 
   end
 
@@ -85,15 +88,18 @@ class Public::OrdersController < ApplicationController
     @order = Order.new(order_params)
     @order.customer_id = current_customer.id
     @order.save
+
+    # orderモデル生成後の注文IDを渡す
     create_order_details(@order.id)
 
   end
 
+  # order_detailモデル生成
   def create_order_details(order_id)
 
-    cartitems = CartItem.where(customer_id: current_customer.id).order(id: "ASC")
+    @cartitems = CartItem.where(customer_id: current_customer.id).order(id: "ASC")
 
-    cartitems.each do |cart_item|
+    @cartitems.each do |cart_item|
 
       order_detail = OrderDetail.new
 
@@ -110,12 +116,15 @@ class Public::OrdersController < ApplicationController
 
     end
 
+    destroy_all_cart_items(@cartitems)
+
   end
-  
-  def delete_cart_items
-    
-    
-    
+
+  # cart_itemモデル削除
+  def destroy_all_cart_items(cartitems)
+
+    cartitems.destroy_all
+
   end
 
 end
