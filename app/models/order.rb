@@ -21,12 +21,36 @@ class Order < ApplicationRecord
 
   end
 
-  # 支払金額 (送料 + 請求額 + "円")
+  # 支払金額 (送料 + 請求額 + "円" コンマ付)
   def get_payment
 
     payment = postage + total_payment
 
     payment.to_s(:delimited) + "円"
+
+  end
+
+  # 送料 ("円" コンマ付)
+  def get_postage
+
+    postage.to_s(:delimited) + "円"
+
+  end
+
+  # 請求額  ("円" コンマ付)
+  def get_total_payment
+
+    total_payment.to_s(:delimited) + "円"
+
+  end
+
+
+  # 商品合計(請求額 - 送料 + "円" コンマ付)
+  def get_product_total
+
+    product_total = total_payment - postage
+
+    product_total.to_s(:delimited) + "円"
 
   end
 

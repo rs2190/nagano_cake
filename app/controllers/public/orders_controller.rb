@@ -1,5 +1,7 @@
 class Public::OrdersController < ApplicationController
 
+  before_action :authenticate_customer!
+
   # [Add] 2023/03/10 注文情報入力画面(支払方法・配送先の選択)実装
   # 注文情報入力画面(支払方法・配送先の選択)
   def new
@@ -33,14 +35,20 @@ class Public::OrdersController < ApplicationController
 
   end
 
-  # 注文履歴画面
+  # [Add] 2023/03/15 注文履歴画面（一覧）& 注文履歴詳細画面実装
+  # 注文履歴画面（一覧）
   def index
 
     @orders = Order.where(customer_id: current_customer.id).order(id: "DESC")
 
   end
 
+  # [Add] 2023/03/15 注文履歴画面（一覧）& 注文履歴詳細画面実装
+  # 注文履歴詳細画面
   def show
+
+    @order = order_find
+
   end
 
   private
