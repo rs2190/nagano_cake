@@ -100,4 +100,13 @@ class ApplicationController < ActionController::Base
 
   end
 
+  # [Add] 2023/03/15 orderモデル取得メソッド実装
+  # Orderモデルを、リクエストパラメータで送られてきた商品idで取得する。
+  def order_find
+
+    Order.find(params[:id])
+
+  end
+
+
 end
