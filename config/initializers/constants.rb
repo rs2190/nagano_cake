@@ -16,7 +16,7 @@ module Constants
   STR_YEN_KANJI　= "円"
 
   # '%Y/%m/%d'
-  DATE_FORMAT_1 = "'%Y/%m/%d'"
+  DATE_FORMAT_1 = '%Y/%m/%d'
 
 
 end
