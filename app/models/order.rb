@@ -44,13 +44,20 @@ class Order < ApplicationRecord
 
   end
 
-
   # 商品合計(請求額 - 送料 + "円" コンマ付)
   def get_product_total
 
     product_total = total_payment - postage
 
     product_total.to_s(:delimited) + "円"
+
+  end
+
+  # [Update] 2023/03/15 配送先郵便番号表示修正
+  # 配送先郵便番号(〒付き)
+  def get_postal_code
+
+     '〒' + postal_code
 
   end
 
