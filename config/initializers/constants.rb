@@ -12,4 +12,11 @@ module Constants
   # 全角スペース
   FULL_WIDTH_SPACE = "　"
 
+  # 円
+  STR_YEN_KANJI　= "円"
+
+  # '%Y/%m/%d'
+  DATE_FORMAT_1 = "'%Y/%m/%d'"
+
+
 end
