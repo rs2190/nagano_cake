@@ -19,6 +19,8 @@ class Public::OrdersController < ApplicationController
 
   end
 
+  # [Add] 2023/03/15 注文履歴画面追加
+  # 注文完了画面
   def thanks
   end
 
@@ -31,7 +33,11 @@ class Public::OrdersController < ApplicationController
 
   end
 
+  # 注文履歴画面
   def index
+
+    @orders = Order.where(customer_id: current_customer.id).order(id: "DESC")
+
   end
 
   def show
