@@ -21,6 +21,14 @@ class Order < ApplicationRecord
 
   end
 
+  # 購入日時
+  def get_purchase_date
+
+    created_at.strftime(DATE_FORMAT_3)
+
+  end
+
+
   # 支払金額 (送料 + 請求額 + "円" コンマ付)
   def get_payment
 
