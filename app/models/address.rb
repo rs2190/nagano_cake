@@ -15,11 +15,4 @@ class Address < ApplicationRecord
 
   end
 
-  #　配送先情報（管理者用）<br> 〒 + 郵便番号 + 住所 (間に半角スペース)
-  def get_address_display_admin
-
-    '〒' + postal_code + HALF_WIDTH_SPACE + address
-
-  end
-
 end
