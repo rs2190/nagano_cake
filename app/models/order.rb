@@ -14,6 +14,13 @@ class Order < ApplicationRecord
   # config/initializers/constants.rb
   include Constants
 
+  # 注文日(管理者用)
+  def get_admin_order_date
+
+    created_at.strftime(DATE_FORMAT_1)
+
+  end
+
   # 注文日
   def get_order_date
 

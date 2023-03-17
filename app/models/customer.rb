@@ -36,7 +36,14 @@ class Customer < ApplicationRecord
 
   end
 
-    # 姓カナ + 名カナ
+  # 姓 + " " + 名 (半角角スペース)
+  def name_half_blank
+
+    last_name + HALF_WIDTH_SPACE + first_name
+
+  end
+
+  # 姓カナ + 名カナ
   def name_kana
 
     last_name_kana + first_name_kana
