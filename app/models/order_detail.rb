@@ -14,4 +14,12 @@ class OrderDetail < ApplicationRecord
 
   end
 
+  # 小計　(単価（税込）* 数量) コンマ付
+  def get_subtotal_delimited
+
+    get_subtotal.to_s(:delimited)
+
+  end
+
+
 end

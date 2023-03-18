@@ -43,6 +43,7 @@
         <th>商品名</th>
         <th>単価（税込）</th>
         <th>数量</th>
+        <th>小計</th>
         <th>製作ステータス</th>
         <th></th>
       </tr>
@@ -53,9 +54,10 @@
         <td><%= g.item.name %></td>
         <td><%= g.price.to_s(:delimited) %></td>
         <td><%= g.amount %></td>
-        <%= form_with model: g, url: admin_order_path(@order.id), method: :patch do |f| %>
-        <td><%= f.select :making_status, OrderDetail.making_statuses_i18n.invert %></td>
-        <td><%= f.submit '編集' %></td>
+        <td><%= g.get_subtotal_delimited %></td>
+        <%= form_with model: g, url: admin_order_order_detail_path(g.id), method: :patch do |form| %>
+        <td><%= form.select :making_status, OrderDetail.making_statuses_i18n.invert %></td>
+        <td><%= form.submit '編集' %></td>
         <% end %>
       </tr>
       <% end %>
