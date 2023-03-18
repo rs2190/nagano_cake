@@ -28,10 +28,37 @@
         <td><strong>注文ステータス</strong></td>
         <td>
           <%= form_with model: @order, url: admin_order_path(@order.id), method: :patch do |f| %>
-             <%= f.select :payment_method, options_from_collection_for_select(Order.payment_methods, Order.payment_methods_values, Order.payment_methods_i18n)  %>　<%= f.submit '編集' %>
+             <%= f.select :order_status, Order.order_statuses_i18n.invert %>
+             <%= f.submit '編集' %>
           <% end %>
         </td>
       </tr>
     </tboby>
+  </table>
+</diV>
+<diV>
+  <table>
+    <thead>
+      <tr>
+        <th>商品名</th>
+        <th>単価（税込）</th>
+        <th>数量</th>
+        <th>製作ステータス</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @order.order_details.each do |g| %>
+      <tr>
+        <td><%= g.item.name %></td>
+        <td><%= g.price.to_s(:delimited) %></td>
+        <td><%= g.amount %></td>
+        <%= form_with model: g, url: admin_order_path(@order.id), method: :patch do |f| %>
+        <td><%= f.select :making_status, OrderDetail.making_statuses_i18n.invert %></td>
+        <td><%= f.submit '編集' %></td>
+        <% end %>
+      </tr>
+      <% end %>
+    </tbody>
   </table>
 </diV>

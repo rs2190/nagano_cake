@@ -1,6 +1,6 @@
 class Admin::OrdersController < ApplicationController
 
-  # [Add] 2023/03/07 顧客一覧画面実装
+  # [[Add] 2023/03/17 注文詳細画面 and 注文ステータスの更新実装
   before_action :authenticate_admin!
 
   # 注文詳細画面(ステータス編集を兼ねる)
@@ -10,6 +10,22 @@ class Admin::OrdersController < ApplicationController
 
   end
 
+  # 注文ステータスの更新
   def update
+
+    @order  = order_find
+    @order.update(order_param)
+    redirect_to admin_order_path
+
   end
+
+  private
+
+  #  ストロングパラメータ
+  def order_param
+
+    params.require(:order).permit(:order_status)
+
+  end
+
 end
