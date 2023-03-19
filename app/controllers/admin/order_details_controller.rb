@@ -1,12 +1,15 @@
 class Admin::OrderDetailsController < ApplicationController
 
-  # [[Add] 2023/03/17 注文詳細画面 and 注文ステータスの更新実装
+  # [Add] 2023/03/19 製作ステータスの更新実装
   before_action :authenticate_admin!
 
   # 製作ステータスの更新
   def update
 
     @orderdetail = OrderDetail.find(params[:id])
+    @orderdetail.update(order_details_param)
+
+    redirect_to admin_order_path(@orderdetail.order_id)
 
   end
 

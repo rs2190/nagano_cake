@@ -55,7 +55,7 @@
         <td><%= g.price.to_s(:delimited) %></td>
         <td><%= g.amount %></td>
         <td><%= g.get_subtotal_delimited %></td>
-        <%= form_with model: g, url: admin_order_order_detail_path(g.id), method: :patch do |form| %>
+        <%= form_with model: g, url: admin_order_order_detail_path(@order,g.id), method: :patch do |form| %>
         <td><%= form.select :making_status, OrderDetail.making_statuses_i18n.invert %></td>
         <td><%= form.submit '編集' %></td>
         <% end %>
