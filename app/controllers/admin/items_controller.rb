@@ -7,7 +7,9 @@ class Admin::ItemsController < ApplicationController
   # 商品一覧
   def index
 
-    @items = Item.all.order(id: "ASC")
+    # [Update] 2023/03/19 レイアウトkaminari実装
+    # @items = Item.all.order(id: "ASC")
+    @items = Item.page(params[:page]).per(10).order(id: "ASC")
 
   end
 

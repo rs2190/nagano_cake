@@ -6,7 +6,9 @@ class Admin::CustomersController < ApplicationController
   # 顧客一覧画面
   def index
 
-    @customers = Customer.all.order(id: "ASC")
+    # [Update] 2023/03/19 レイアウトkaminari実装
+    # @customers = Customer.all.order(id: "ASC")
+     @customers = Customer.page(params[:page]).order(id: "ASC")
 
   end
 
@@ -27,7 +29,7 @@ class Admin::CustomersController < ApplicationController
     @customer = customer_find_params
 
   end
-  
+
   # [Add] 2023/03/07 顧客情報の更新実装
   # 顧客情報の更新
   def update

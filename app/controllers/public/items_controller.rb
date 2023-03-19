@@ -13,7 +13,9 @@ class Public::ItemsController < ApplicationController
 
     else
 
-      @items = Item.all.order(id: "DESC")
+      # [Update] 2023/03/19 レイアウトkaminari実装
+      # @items = Item.all.order(id: "DESC")
+      @items = Item.page(params[:page]).per(8).order(id: "DESC")
 
     end
 
