@@ -122,7 +122,7 @@ class Public::OrdersController < ApplicationController
       # 商品ID
       order_detail.item_id = cart_item.item_id
       # 単価（税込）
-      
+      # [Fix] 2023/03/18 注文詳細が単価（税込）になっていないため修正
       # order_detail.price = cart_item.item.price
       order_detail.price = cart_item.item.get_tax_included_price
       # 数量
