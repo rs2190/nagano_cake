@@ -8,7 +8,7 @@ class Admin::CustomersController < ApplicationController
 
     # [Update] 2023/03/19 レイアウトkaminari実装
     # @customers = Customer.all.order(id: "ASC")
-     @customers = Customer.page(params[:page]).order(id: "ASC")
+     @customers = Customer.page(params[:page]).per(10).order(id: "ASC")
 
   end
 
