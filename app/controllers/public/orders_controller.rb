@@ -122,7 +122,9 @@ class Public::OrdersController < ApplicationController
       # 商品ID
       order_detail.item_id = cart_item.item_id
       # 単価（税込）
-      order_detail.price = cart_item.item.price
+      
+      # order_detail.price = cart_item.item.price
+      order_detail.price = cart_item.item.get_tax_included_price
       # 数量
       order_detail.amount = cart_item.amount
 

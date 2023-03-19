@@ -64,3 +64,24 @@
     </tbody>
   </table>
 </diV>
+
+<div>
+  <table>
+    <tboby>
+      <tr>
+        <td><strong>商品合計</strong></td>
+        <td><%= @order.get_product_total %></td>
+      </tr>
+      <tr>
+        <td><strong>送料</strong></td>
+        <td><%= @order.get_postage %></td>
+      </tr>
+      <tr>
+        <td><strong>請求合計金額</strong></td>
+        <td>
+          <%= @order.get_total_payment %><br>
+        </td>
+      </tr>
+    </tboby>
+  </table>
+</div>
