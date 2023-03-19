@@ -57,7 +57,9 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
-#devise 2023/02/26
+# devise 2023/02/26
 gem 'devise'
-#enum_help 2023/02/26
+# enum_help 2023/02/26
 gem "enum_help"
+# kaminari 2023/03/19
+gem 'kaminari','~> 1.2.1'
