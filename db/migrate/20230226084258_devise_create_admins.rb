@@ -6,16 +6,16 @@ class DeviseCreateAdmins < ActiveRecord::Migration[6.1]
 
       ## Database authenticatable
       # メールアドレス
-      t.string :email,              null: false # , default: ""
+      t.string :email,              null: false, default: ""
       # パスワード
-      t.string :encrypted_password, null: false #, default: ""
+      t.string :encrypted_password, null: false, default: ""
 
       ## Recoverable
-      # t.string   :reset_password_token
-      # t.datetime :reset_password_sent_at
+      t.string   :reset_password_token
+      t.datetime :reset_password_sent_at
 
       ## Rememberable
-      # t.datetime :remember_created_at
+      t.datetime :remember_created_at
 
       ## Trackable
       # t.integer  :sign_in_count, default: 0, null: false
@@ -40,7 +40,7 @@ class DeviseCreateAdmins < ActiveRecord::Migration[6.1]
     end
 
     add_index :admins, :email,                unique: true
-    # add_index :admins, :reset_password_token, unique: true
+    add_index :admins, :reset_password_token, unique: true
     # add_index :admins, :confirmation_token,   unique: true
     # add_index :admins, :unlock_token,         unique: true
   end

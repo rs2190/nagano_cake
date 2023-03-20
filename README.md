@@ -18,3 +18,7 @@
 ### yarn
 - yarn add jquery bootstrap@4.5 popper.js
 - yarn add @fortawesome/fontawesome-free@5.15.4
+
+
+### logo
+- https://www.shopify.com/jp/tools/logo-maker

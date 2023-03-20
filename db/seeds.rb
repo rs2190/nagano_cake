@@ -9,7 +9,34 @@
 # 管理者権限ユーザー追加
 
 # [Add] 2023/03/02 管理者権限ユーザー追加
+
+# 管理者
 Admin.create!(
              email: "admin@example.jp",
              password:  "000000",
              )
+
+# ジャンル
+Genre.create!(
+   name: "ケーキ"
+)
+
+Genre.create!(
+   name: "焼き菓子"
+)
+
+Genre.create!(
+   name: "プリン"
+)
+
+Genre.create!(
+   name: "キャンディ"
+)
+
+Genre.create!(
+   name: "ゼリー"
+)
+
+Genre.create!(
+   name: "チョコレート"
+)
