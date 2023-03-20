@@ -1,6 +1,6 @@
 class Public::CustomersController < ApplicationController
 
-  before_action :authenticate_customer!, only: [:show]
+  before_action :authenticate_customer!
 
   # [Add] 2023/03/03 顧客のマイページ実装
   # 顧客のマイページ
@@ -41,10 +41,22 @@ class Public::CustomersController < ApplicationController
 
   end
 
+  # 顧客の退会確認画面
   def unsubscribe
   end
 
+  # [Add] 2023/03/20 顧客の退会処理(ステータスの更新)実装
+  # 顧客の退会処理(ステータスの更新)
   def goodbye
+
+    @customer = customer_find
+    @customer.update(is_deleted: true)
+    # ログアウト
+    reset_session
+
+    flash[:notice] = "退会完了いたしました。またのご利用お待ちしております。"
+    redirect_to root_path
+
   end
 
 

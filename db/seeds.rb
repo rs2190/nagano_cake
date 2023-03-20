@@ -186,4 +186,4 @@ Item.create!(
 # item10.image.attach(io: File.open(Rails.root.join('app/assets/images/items/item_10.jpg')), filename: 'item_10.jpg')
 # item11.image.attach(io: File.open(Rails.root.join('app/assets/images/items/item_11.jpg')), filename: 'item_11.jpg')
 # item12.image.attach(io: File.open(Rails.root.join('app/assets/images/items/item_12.jpg')), filename: 'item_12.jpg')
-# item13.image.attach(io: File.open(Rails.root.join('app/assets/images/items/item_12.jpg')), filename: 'item_13.jpg')
+# item13.image.attach(io: File.open(Rails.root.join('app/assets/images/items/item_13.jpg')), filename: 'item_13.jpg')
