@@ -17,26 +17,36 @@ Admin.create!(
              )
 
 # ジャンル
+
+# id = !
 Genre.create!(
    name: "ケーキ"
 )
 
+# id = 2
 Genre.create!(
    name: "焼き菓子"
 )
 
+# id = 3
 Genre.create!(
    name: "プリン"
 )
 
+# id = 4
 Genre.create!(
    name: "キャンディ"
 )
 
+# id = 5
 Genre.create!(
    name: "ゼリー"
 )
 
+# id = 6
 Genre.create!(
    name: "チョコレート"
 )
+
+
+
