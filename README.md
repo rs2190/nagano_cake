@@ -14,3 +14,7 @@
 - enum_help
 - image_processing , ~> 1.2
 - kaminari, ~> 1.2.1
+
+### yarn
+- yarn add jquery bootstrap@4.5 popper.js
+- yarn add @fortawesome/fontawesome-free@5.15.4
