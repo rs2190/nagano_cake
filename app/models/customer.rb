@@ -19,6 +19,36 @@ class Customer < ApplicationRecord
   # config/initializers/constants.rb
   include Constants
 
+  # [Add] 2023/03/22 バリエーション追加
+  # バリデーション
+  with_options presence: true do
+
+    validates :last_name
+    validates :first_name
+    validates :email
+    validates :encrypted_password
+
+    with_options format: {with: /\A[ァ-ヶー－]+\z/, message: "は全角カタカナのみで入力して下さい"} do
+
+      validates :last_name_kana
+      validates :first_name_kana
+
+    end
+
+    with_options format: {with: /\A\d{7}\z/, message: "は半角数字7桁で入力して下さい"} do
+
+      validates :postal_code
+
+    end
+
+    with_options format: {with: /\A[0-9]+\z/, message: "は半角数字で入力して下さい"} do
+
+      validates :telephone_number
+
+    end
+
+  end
+
 
   # "[Add] 2023/03/03 顧客のマイページ実装"
 

@@ -6,7 +6,7 @@
   <div class="field">
     <%= f.label :name, "名前" %>
     <%= f.label :last_name, "(姓)" %>
-    <%= f.text_field :last_name, :placeholder => "令和" %>
+    <%= f.text_field :last_name, :placeholder => "令和", autofocus: true %>
     <%= f.label :first_name, "(名)" %>
     <%= f.text_field :first_name, :placeholder => "道子" %>
   </div>
@@ -15,7 +15,7 @@
     <%= f.label :name_kana, "フリガナ" %>
     <%= f.label :last_name_kana, "(セイ)" %>
     <%= f.text_field :last_name_kana, :placeholder => "レイワ" %>
-    <%= f.label :last_name_kana, "(メイ)" %>
+    <%= f.label :first_name_kana, "(メイ)" %>
     <%= f.text_field :first_name_kana, :placeholder => "ミチコ" %>
   </div>
 
@@ -26,7 +26,7 @@
 
   <div class="field">
     <%= f.label :postal_code, "郵便番号 (ハイフンなし)" %>
-    <%= f.text_field :postal_code, :placeholder => "0000000" %>
+    <%= f.text_field :postal_code, :placeholder => "0000000", maxlength: 7  %>
   </div>
 
   <div class="field">

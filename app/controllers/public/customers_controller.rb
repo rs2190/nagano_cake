@@ -34,7 +34,6 @@ class Public::CustomersController < ApplicationController
 
     else
 
-
       render :edit
 
     end
