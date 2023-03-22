@@ -57,7 +57,7 @@
           telephone_number: "電話番号 (ハイフンなし)"
           password: "パスワード (6文字以上) "
           password_confirmation: "パスワード (確認用) "
-          encrypted_password: 暗号化パスワード
+          encrypted_password: "暗号化パスワード"
         admin:
           email: "メールアドレス"
           password: "パスワード"

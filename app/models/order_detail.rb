@@ -7,6 +7,21 @@ class OrderDetail < ApplicationRecord
   # [Add] 2023/02/26 orderdetailモデルに製作ステータスのenum実装
   enum making_status: { cannot_start: 0, waiting_for_payment: 1, in_production: 2, completion_of_production: 3 }
 
+
+  # [Add] 2023/03/22 バリエーション追加
+  # バリデーション
+  with_options presence: true do
+
+    with_options format: {with: /\A[0-9]+\z/, message: "は半角数字で入力して下さい"} do
+
+      validates :price
+      validates :amount
+      validates :making_status
+
+    end
+
+  end
+
   # 小計　(単価（税込）* 数量)
   def get_subtotal
 

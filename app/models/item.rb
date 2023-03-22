@@ -13,6 +13,21 @@ class Item < ApplicationRecord
 
   has_many :order_details
 
+  # [Add] 2023/03/22 バリエーション追加
+  # バリデーション
+  with_options presence: true do
+
+    validates :name
+    validates :introduction
+
+    with_options format: {with: /\A[0-9]+\z/, message: "は半角数字で入力して下さい"} do
+
+      validates :price
+
+    end
+
+  end
+
   # [Add] 2023/03/08 商品詳細画面実装etc
   # 商品画像のgetterメソッド。<br>画像サイズ指定可能(width(integer):横,height(integer):高さ)(px)
   def get_image(width, height)

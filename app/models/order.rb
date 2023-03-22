@@ -14,6 +14,26 @@ class Order < ApplicationRecord
   # config/initializers/constants.rb
   include Constants
 
+  # [Add] 2023/03/22 バリエーション追加
+  # バリデーション
+  with_options presence: true do
+
+    validates :postal_code
+    validates :address
+    validates :name
+
+    with_options format: {with: /\A[0-9]+\z/, message: "は半角数字で入力して下さい"} do
+
+      validates :postage
+      validates :total_payment
+      validates :payment_method
+      validates :order_status
+
+    end
+
+  end
+
+
   # 注文日(管理者用)
   def get_admin_order_date
 
