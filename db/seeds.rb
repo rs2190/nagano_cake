@@ -55,8 +55,8 @@ Genre.create!(
       email: "test#{n + 1}@xxxx.com",
       first_name: "名#{n + 1}",
       last_name: "姓#{n + 1}",
-      first_name_kana: "セイ#{n + 1}",
-      last_name_kana: "メイ#{n + 1}",
+      first_name_kana: "セイ",
+      last_name_kana: "メイ",
       password: "000000",
       postal_code: "1000001",
       address: "東京都千代田区大手町1-1-1 実装マンション#{n + 1}階",
@@ -172,18 +172,18 @@ Item.create!(
 
 # 商品画像
 
-# こちらで用意しようとした画像は、若干グレーなため。格納場所もろとも削除。使用する際は、以下の格納場所とファイル名を設定して用意すること。
+# 用意しようとした画像は若干グレーなため。格納場所の画像を削除。使用する際は、以下の格納場所とファイル名を設定して用意すること。
 
-# item01.image.attach(io: File.open(Rails.root.join('app/assets/images/items/item_01.jpg')), filename: 'item_01.jpg')
-# item02.image.attach(io: File.open(Rails.root.join('app/assets/images/items/item_02.jpg')), filename: 'item_02.jpg')
-# item03.image.attach(io: File.open(Rails.root.join('app/assets/images/items/item_03.jpg')), filename: 'item_03.jpg')
-# item04.image.attach(io: File.open(Rails.root.join('app/assets/images/items/item_04.jpg')), filename: 'item_04.jpg')
-# item05.image.attach(io: File.open(Rails.root.join('app/assets/images/items/item_05.jpg')), filename: 'item_05.jpg')
-# item06.image.attach(io: File.open(Rails.root.join('app/assets/images/items/item_06.jpg')), filename: 'item_06.jpg')
-# item07.image.attach(io: File.open(Rails.root.join('app/assets/images/items/item_07.jpg')), filename: 'item_07.jpg')
-# item08.image.attach(io: File.open(Rails.root.join('app/assets/images/items/item_08.jpg')), filename: 'item_08.jpg')
-# item09.image.attach(io: File.open(Rails.root.join('app/assets/images/items/item_09.jpg')), filename: 'item_09.jpg')
-# item10.image.attach(io: File.open(Rails.root.join('app/assets/images/items/item_10.jpg')), filename: 'item_10.jpg')
-# item11.image.attach(io: File.open(Rails.root.join('app/assets/images/items/item_11.jpg')), filename: 'item_11.jpg')
-# item12.image.attach(io: File.open(Rails.root.join('app/assets/images/items/item_12.jpg')), filename: 'item_12.jpg')
-# item13.image.attach(io: File.open(Rails.root.join('app/assets/images/items/item_13.jpg')), filename: 'item_13.jpg')
+item01.image.attach(io: File.open(Rails.root.join('app/assets/images/items/item_01.jpg')), filename: 'item_01.jpg')
+item02.image.attach(io: File.open(Rails.root.join('app/assets/images/items/item_02.jpg')), filename: 'item_02.jpg')
+item03.image.attach(io: File.open(Rails.root.join('app/assets/images/items/item_03.jpg')), filename: 'item_03.jpg')
+item04.image.attach(io: File.open(Rails.root.join('app/assets/images/items/item_04.jpg')), filename: 'item_04.jpg')
+item05.image.attach(io: File.open(Rails.root.join('app/assets/images/items/item_05.jpg')), filename: 'item_05.jpg')
+item06.image.attach(io: File.open(Rails.root.join('app/assets/images/items/item_06.jpg')), filename: 'item_06.jpg')
+item07.image.attach(io: File.open(Rails.root.join('app/assets/images/items/item_07.jpg')), filename: 'item_07.jpg')
+item08.image.attach(io: File.open(Rails.root.join('app/assets/images/items/item_08.jpg')), filename: 'item_08.jpg')
+item09.image.attach(io: File.open(Rails.root.join('app/assets/images/items/item_09.jpg')), filename: 'item_09.jpg')
+item10.image.attach(io: File.open(Rails.root.join('app/assets/images/items/item_10.jpg')), filename: 'item_10.jpg')
+item11.image.attach(io: File.open(Rails.root.join('app/assets/images/items/item_11.jpg')), filename: 'item_11.jpg')
+item12.image.attach(io: File.open(Rails.root.join('app/assets/images/items/item_12.jpg')), filename: 'item_12.jpg')
+item13.image.attach(io: File.open(Rails.root.join('app/assets/images/items/item_13.jpg')), filename: 'item_13.jpg')

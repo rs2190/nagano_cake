@@ -12,12 +12,14 @@ class ApplicationController < ActionController::Base
     # Admins(管理者)
     when Admin then
       # 管理者トップページ(注文履歴一覧)
+      notice("お疲れ様です!　本日も一日頑張りましょう。")
       admin_home_top_path
     # Customers(ユーザー)
     when Customer then
       # 顧客のマイページ
       # [Update] 2023/03/01 顧客のマイページのrouting修正
       # show_customers_path
+      notice("ようこそ!　ここがあなたのマイページです。")
       my_page_path
     end
   end
@@ -105,6 +107,20 @@ class ApplicationController < ActionController::Base
   def order_find
 
     Order.find(params[:id])
+
+  end
+
+  # フラッシュメッセージを定義(正常)
+  def notice(word)
+
+    flash[:notice] = word
+
+  end
+
+  # フラッシュメッセージを定義（異常）
+  def alert(word)
+
+    flash[:alert] = word
 
   end
 

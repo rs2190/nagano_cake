@@ -7,18 +7,18 @@ class Public::ItemsController < ApplicationController
     @genres = genre_all_asc
 
     # issue タグ検索未実装
-    if params[:id].present?
+    # ⇒ 削除　2023/03/24
+    # if params[:id].present?
 
-      @items = Item.where(genre_id: params[:id]).order(id: "DESC")
+    #   @items = Item.where(genre_id: params[:id]).order(id: "DESC")
 
-    else
+    # else
 
       # [Update] 2023/03/19 レイアウトkaminari実装
       # @items = Item.all.order(id: "DESC")
-      @items = Item.page(params[:page]).per(8).order(id: "DESC")
+    @items = Item.page(params[:page]).per(8).order(id: "DESC")
 
-    end
-
+    # end
 
   end
 

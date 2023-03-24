@@ -14,7 +14,7 @@ class Public::OrdersController < ApplicationController
   # 注文情報確認画面
   def confirm
 
-    check_adress(params[:order][:select_address])
+    check_adress
     @total = 0
     @postage = 800
 
@@ -31,7 +31,6 @@ class Public::OrdersController < ApplicationController
   def create
 
     create_order
-    redirect_to thanks_path
 
   end
 
@@ -61,8 +60,9 @@ class Public::OrdersController < ApplicationController
   end
 
   # お届け先分岐条件処理
-  def check_adress(select_address)
+  def check_adress
 
+    select_address = params[:order][:select_address]
     # お届け先 = ご自身の住所 の場合
     if select_address == "0"
 
@@ -72,15 +72,22 @@ class Public::OrdersController < ApplicationController
       @order.address = current_customer.address
       @order.name = current_customer.name
 
+
     # お届け先 = 登録済住所から選択 の場合
     elsif select_address == "1"
 
       # 登録しているaddressモデルを取得。
       @order = Order.new(order_params)
-      @address = Address.find(params[:order][:address_id])
-      @order.postal_code = @address.postal_code
-      @order.address = @address.address
-      @order.name = @address.name
+
+      if params[:order][:address_id].presence
+
+        @address = Address.find(params[:order][:address_id])
+        @order.postal_code = @address.postal_code
+        @order.address = @address.address
+        @order.name = @address.name
+
+      end
+
 
     # お届け先 = 新しいお届け先 の場合
     elsif select_address == "2"
@@ -88,8 +95,11 @@ class Public::OrdersController < ApplicationController
       # 注文情報入力画面で入力した内容を反映
       @order = Order.new(order_params)
 
-    else
+    end
 
+    if !@order.postal_code.presence || !@order.address.presence  || !@order.name.presence
+
+      alert("お届け先の入力内容が不足しています。")
       render :new
 
     end
@@ -101,10 +111,16 @@ class Public::OrdersController < ApplicationController
 
     @order = Order.new(order_params)
     @order.customer_id = current_customer.id
-    @order.save
 
-    # orderモデル生成後の注文IDを渡す
-    create_order_details(@order.id)
+    if @order.save
+      # orderモデル生成後の注文IDを渡す
+      create_order_details(@order.id)
+
+    else
+
+      render :new
+
+    end
 
   end
 
@@ -140,6 +156,7 @@ class Public::OrdersController < ApplicationController
   def destroy_all_cart_items(cartitems)
 
     cartitems.destroy_all
+    redirect_to thanks_path
 
   end
 

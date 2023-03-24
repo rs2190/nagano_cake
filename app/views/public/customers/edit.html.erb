@@ -1,6 +1,18 @@
 <h2>会員情報編集</h2>
 
 <%= form_with model: @customer, url: update_information_customers_path, method: :patch do |f| %>
+
+<% if @customer.errors.any? %>
+  <div id="error_explanation">
+    <h3><%= @customer.errors.count %> 個のエラーが発生しました。</h3>
+    <ul>
+    <% @customer.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+    <% end %>
+    </ul>
+  <div>
+<% end %>
+
 <table>
   <tbody>
     <tr>
@@ -33,6 +45,6 @@
 </table>
 <div>
   <%= f.submit '編集内容を保存', class:"btn btn-success" %>
-  <%= link_to "退会する", unsubscribe_path %>
+  <%= link_to "退会する", unsubscribe_path, class: "btn btn-danger" %>
 </div>
 <% end %>

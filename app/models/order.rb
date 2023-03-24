@@ -18,16 +18,15 @@ class Order < ApplicationRecord
   # バリデーション
   with_options presence: true do
 
-    validates :postal_code
     validates :address
     validates :name
+    validates :payment_method
+    validates :order_status
 
     with_options format: {with: /\A[0-9]+\z/, message: "は半角数字で入力して下さい"} do
-
+      validates :postal_code
       validates :postage
       validates :total_payment
-      validates :payment_method
-      validates :order_status
 
     end
 

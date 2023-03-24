@@ -17,18 +17,9 @@ class Public::CartItemsController < ApplicationController
   def update
 
     @cart_item = cart_item_find
-
-    if @cart_item.update(amount: cart_item_params[:amount].to_i)
-
-      redirect_to cart_items_path
-
-    else
-
-      @cart_items = CartItem.where(customer_id: current_customer.id).order(id: "ASC")
-      @total = 0
-      render :index
-
-    end
+    @cart_item.update(amount: cart_item_params[:amount].to_i)
+    notice("対象商品の数量を変更しました。")
+    redirect_to cart_items_path
 
   end
 
@@ -38,6 +29,7 @@ class Public::CartItemsController < ApplicationController
 
     cart_item = cart_item_find
     cart_item.destroy
+    notice("対象商品を削除しました。")
     redirect_to cart_items_path
 
   end
@@ -48,6 +40,7 @@ class Public::CartItemsController < ApplicationController
 
     cart_items = CartItem.where(customer_id: current_customer.id)
     cart_items.destroy_all
+    notice("カート内の商品を全て削除しました。")
     redirect_to cart_items_path
 
   end
@@ -55,11 +48,18 @@ class Public::CartItemsController < ApplicationController
   # カート内商品データ追加
   def create
 
-    chack = false
+    item_id = cart_item_params[:item_id]
 
+    # 入力チェック
+    if cart_item_params[:amount].to_i == 0
+
+      alert("個数を選択してください。")
+      redirect_to item_path(item_id)
+
+    else
     # [Add] 2023/03/09 数量更新処理追加
     # カート内に、過去に商品した商品があるか？
-    @Cart_Item = CartItem.find_by(customer_id: current_customer.id, item_id: cart_item_params[:item_id])
+    @Cart_Item = CartItem.find_by(customer_id: current_customer.id, item_id: item_id)
 
     if @Cart_Item
 
@@ -69,35 +69,22 @@ class Public::CartItemsController < ApplicationController
       update_amount += cart_item_params[:amount].to_i
 
       # 加算した数量を更新
-      if @Cart_Item.update(amount: update_amount)
-
-        # 更新成功時
-        chack = true
-
-      end
+      @Cart_Item.update(amount: update_amount)
 
     else
-
       # 存在しない場合は、作成。
       @cart_item = CartItem.new(cart_item_params)
       @cart_item.customer_id = current_customer.id
-
-      if @cart_item.save
-
-        # 登録（更新）成功時の遷移
-        chack = true
-
-      end
+      @cart_item.save
 
     end
 
-    if chack
-
-      #更新登録成功時の
+      notice("カートに対象商品を追加しました。")
+      #更新登録成功時の遷移先
       redirect_to cart_items_path
-    else
-      render :'public/items#show'
+
     end
+
   end
 
   private

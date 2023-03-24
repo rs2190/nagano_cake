@@ -38,7 +38,6 @@
 #     activerecord: # activerecord
 #       [モデル名]:
 #         [カラム名]:
-  ja:
     activerecord:
       models:
         customer: "会員"
@@ -61,6 +60,8 @@
         admin:
           email: "メールアドレス"
           password: "パスワード"
+        order:
+          postal_code: "郵便番号 (ハイフンなし)"
 
     # バリデーションエラー
     errors:

@@ -12,11 +12,14 @@ class OrderDetail < ApplicationRecord
   # バリデーション
   with_options presence: true do
 
+    validates :order_id
+    validates :item_id
+    validates :making_status
+
     with_options format: {with: /\A[0-9]+\z/, message: "は半角数字で入力して下さい"} do
 
       validates :price
       validates :amount
-      validates :making_status
 
     end
 

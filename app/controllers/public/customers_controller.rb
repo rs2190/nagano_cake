@@ -30,6 +30,7 @@ class Public::CustomersController < ApplicationController
 
       # [Update & Fix] 2023/03/07 ①定数クラス仕様　②マイページ更新時 redirect to修正etc
       # 更新成功後、顧客のマイページへ遷移
+      notice("あなたの登録情報を更新しました。")
       redirect_to my_page_path
 
     else

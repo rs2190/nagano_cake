@@ -1,6 +1,18 @@
 <h2>注文情報入力</h2>
 
 <%= form_with model: @order, url: confirm_path,  method: :post do |f| %>
+
+<% if @order.errors.any? %>
+  <div id="error_explanation">
+    <h3><%= @order.errors.count %> 個のエラーが発生しました。</h3>
+    <ul>
+    <% @order.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+    <% end %>
+    </ul>
+  <div>
+<% end %>
+
 <div>
   <h3>支払方法</h3>
   <div>
@@ -35,7 +47,7 @@
       <tbody>
         <tr>
           <td>郵便番号(ハイフンなし)</td>
-          <td><%= f.text_field :postal_code, :placeholder => "0000000" %></td>
+          <td><%= f.text_field :postal_code, :placeholder => "0000000", maxlength: 7  %></td>
         </tr>
         <tr>
           <td>住所</td>
