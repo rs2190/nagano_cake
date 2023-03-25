@@ -1,7 +1,7 @@
 class Admin::ItemsController < ApplicationController
 
    # [Add] 2023/03/08 商品新規登録画面実装
-  before_action :authenticate_admin!, only: [:index, :new, :show, :edit]
+  before_action :authenticate_admin!
 
   # [Add] 2023/03/08 商品一覧画面実装
   # 商品一覧
@@ -26,15 +26,25 @@ class Admin::ItemsController < ApplicationController
   def create
 
     @item = Item.new(item_param)
+    genre_id = item_param[:genre_id]
 
+    # 入力チェック
+    if !genre_id.presence
 
-    if @item.save
-
-      redirect_to admin_items_path
+      alert("ジャンルを選択してください。")
+      render :new
 
     else
 
-      render :new
+      if @item.save
+
+        redirect_to admin_items_path
+
+      else
+
+        render :new
+
+      end
 
     end
 

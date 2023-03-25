@@ -62,6 +62,15 @@
           password: "パスワード"
         order:
           postal_code: "郵便番号 (ハイフンなし)"
+        address:
+          name: "宛名"
+          address: "住所"
+          postal_code: "郵便番号 (ハイフンなし)"
+        item:
+          name: "商品名"
+          introduction: "商品説明"
+          genre_id: "ジャンル"
+          price: "税抜価格"
 
     # バリデーションエラー
     errors:

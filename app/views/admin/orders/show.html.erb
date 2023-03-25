@@ -29,7 +29,7 @@
         <td>
           <%= form_with model: @order, url: admin_order_path(@order.id), method: :patch do |f| %>
              <%= f.select :order_status, Order.order_statuses_i18n.invert %>
-             <%= f.submit '編集' %>
+             <%= f.submit '更新', class:"btn btn-success" %>
           <% end %>
         </td>
       </tr>
@@ -57,7 +57,7 @@
         <td><%= g.get_subtotal_delimited %></td>
         <%= form_with model: g, url: admin_order_order_detail_path(@order,g.id), method: :patch do |form| %>
         <td><%= form.select :making_status, OrderDetail.making_statuses_i18n.invert %></td>
-        <td><%= form.submit '編集' %></td>
+        <td><%= form.submit '更新', class:"btn btn-success" %></td>
         <% end %>
       </tr>
       <% end %>

@@ -1,7 +1,19 @@
 <h2>商品新規登録</h2>
 
-<!--%= render 'users/info', user: @user %-->
 <%= form_with model: @item, url: admin_items_path, method: :post do |f| %>
+
+  <% if @item.errors.any? %>
+  <div id="error_explanation">
+    <h3><%= @item.errors.count %> 個のエラーが発生しました。</h3>
+    <ul>
+    <% @item.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+    <% end %>
+    </ul>
+  <div>
+  <% end %>
+
+
 <div>
   <table>
     <tbody>

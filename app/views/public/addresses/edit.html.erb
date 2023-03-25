@@ -1,11 +1,22 @@
 <h2>配送先編集</h2>
 
   <%= form_with model: @address, url: address_path, method: :patch do |f| %>
+  <% if @address.errors.any? %>
+  <div id="error_explanation">
+    <h3><%= @address.errors.count %> 個のエラーが発生しました。</h3>
+    <ul>
+    <% @address.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+    <% end %>
+    </ul>
+  <div>
+  <% end %>
+
   <table>
     <tbody>
       <tr>
         <td>郵便番号(ハイフンなし)</td>
-        <td><%= f.text_field :postal_code, :placeholder => "0000000" %></td>
+        <td><%= f.text_field :postal_code, :placeholder => "0000000", maxlength: 7  %></td>
       </tr>
       <tr>
         <td>住所</td>
