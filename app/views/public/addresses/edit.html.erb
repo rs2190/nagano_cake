@@ -1,4 +1,6 @@
-<h2>配送先編集</h2>
+<div class = "d-flex justify-content-between">
+  <h4 class = "gray field m-3">配送先編集</h4>
+</div>
 
   <%= form_with model: @address, url: address_path, method: :patch do |f| %>
   <% if @address.errors.any? %>
