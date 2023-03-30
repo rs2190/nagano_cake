@@ -1,4 +1,6 @@
-<h2>会員情報編集</h2>
+<div class = "d-flex justify-content-between">
+  <h4 class = "gray field m-3">会員情報編集</h4>
+</div>
 
 <%= form_with model: @customer, url: update_information_customers_path, method: :patch do |f| %>
 
@@ -10,41 +12,42 @@
         <li><%= message %></li>
     <% end %>
     </ul>
-  <div>
+  </div>
 <% end %>
 
 <table>
   <tbody>
     <tr>
-      <td>氏名</td>
+      <td colspan="2">氏名</td>
       <td><%= f.text_field :last_name, :placeholder => "令和", autofocus: true %></td>
       <td><%= f.text_field :first_name, :placeholder => "道子" %></td>
     </tr>
     <tr>
-      <td>フリカナ</td>
+      <td colspan="2">フリカナ</td>
       <td><%= f.text_field :last_name_kana, :placeholder => "レイワ" %></td>
       <td><%= f.text_field :first_name_kana, :placeholder => "ミチコ" %></td>
     </tr>
     <tr>
-      <td>郵便番号</td>
+      <td colspan="2">郵便番号</td>
       <td><%= f.text_field :postal_code, :placeholder => "0000000", maxlength: 7  %></td>
     </tr>
     <tr>
-      <td>住所</td>
+      <td colspan="2">住所</td>
       <td><%= f.text_field :address, :placeholder => "東京都渋谷区神園町0-0" %></td>
     </tr>
     <tr>
-      <td>電話番号</td>
+      <td colspan="2">電話番号</td>
       <td><%= f.text_field :telephone_number, :placeholder => "0000000" %></td>
     </tr>
     <tr>
-      <td>メールアドレス</td>
+      <td colspan="2">メールアドレス</td>
       <td><%= f.email_field :email, :placeholder => "sample@example.com" %></td>
+    </tr>
+     <tr class = "field my-2">
+       <td colspan="2"></td>
+       <td><%= f.submit '編集内容を保存', class:"btn btn-success" %></td>
+       <td><%= link_to "退会する", unsubscribe_path, class: "btn btn-danger" %></td>
     </tr>
   </tbody>
 </table>
-<div>
-  <%= f.submit '編集内容を保存', class:"btn btn-success" %>
-  <%= link_to "退会する", unsubscribe_path, class: "btn btn-danger" %>
-</div>
 <% end %>
