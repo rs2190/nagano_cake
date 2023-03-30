@@ -1,76 +1,77 @@
-<h2>注文履歴詳細</h2>
-
-<div>
-  <div>
-    <h3>注文情報</h3>
-  </div>
-  <table>
-    <tbody>
-      <tr>
-        <td>注文日</td>
-        <td><%= @order.get_order_date %></td>
-      </tr>
-      <tr>
-        <td>配送先</td>
-        <td>
-          <%= @order.get_postal_code %><br>
-          <%= @order.address %><br>
-          <%= @order.name %><br>
-        </td>
-      </tr>
-      <tr>
-        <td>支払方法</td>
-        <td><%= Order.payment_methods_i18n[@order.payment_method] %></td>
-      </tr>
-      <tr>
-        <td>ステータス</td>
-        <td><%= Order.order_statuses_i18n[@order.order_status] %></td>
-      </tr>
-    </tbody>
-  </table>
-  <div>
-    <h3>請求情報</h3>
-  </div>
-  <table>
-    <tbody>
-      <tr>
-        <td>商品合計</td>
-        <td><%= @order.get_product_total %></td>
-      </tr>
-      <tr>
-        <td>配送料</td>
-        <td><%= @order.get_postage %></td>
-      </tr>
-      <tr>
-        <td>ご請求額</td>
-        <td><%= @order.get_total_payment %></td>
-      </tr>
-    </tbody>
-  </table>
+<div class = "d-flex justify-content-between">
+  <h4 class = "gray field m-3">注文履歴詳細</h4>
 </div>
 
-<div>
+<div class = "row">
   <div>
-    <h3>注文内容</h3>
+    <strong>注文情報</strong>
+    <div class = "field mb-4">
+      <table class = "table table-bordered">
+        <tbody>
+          <tr>
+            <td class="table-secondary">注文日</td>
+            <td><%= @order.get_order_date %></td>
+          </tr>
+          <tr>
+            <td class="table-secondary">配送先</td>
+            <td>
+              <%= @order.get_postal_code %><br>
+              <%= @order.address %><br>
+              <%= @order.name %><br>
+            </td>
+          </tr>
+          <tr>
+            <td class="table-secondary">支払方法</td>
+            <td><%= Order.payment_methods_i18n[@order.payment_method] %></td>
+          </tr>
+          <tr>
+            <td class="table-secondary">ステータス</td>
+            <td><%= Order.order_statuses_i18n[@order.order_status] %></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div>
+      <strong>注文内容</strong>
+      <table class = "table table-bordered">
+        <thead>
+          <tr>
+            <td class="table-secondary">商品名</td>
+            <td class="table-secondary">単価（税込）</td>
+            <td class="table-secondary">数量</td>
+            <td class="table-secondary">小計</td>
+          </tr>
+        </thead>
+        <tbody>
+          <% @order.order_details.each do |f| %>
+          <tr>
+            <td><%= f.item.name %></td>
+            <td><%= f.price %></td>
+            <td><%= f.amount %></td>
+            <td><%= f.get_subtotal %></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
   </div>
-    <table>
-    <thead>
-      <tr>
-        <td>商品名</td>
-        <td>単価（税込）</td>
-        <td>数量</td>
-        <td>小計</td>
-      </tr>
-    </thead>
-    <tbody>
-      <% @order.order_details.each do |f| %>
-      <tr>
-        <td><%= f.item.name %></td>
-        <td><%= f.price %></td>
-        <td><%= f.amount %></td>
-        <td><%= f.get_subtotal %></td>
-      </tr>
-      <% end %>
-    </tbody>
-  </table>
+  <div class = "offset-1">
+    <strong>請求情報</strong>
+    <table class = "table table-bordered">
+      <tbody>
+        <tr>
+          <td class="table-secondary">商品合計</td>
+          <td><%= @order.get_product_total %></td>
+        </tr>
+        <tr>
+          <td class="table-secondary">配送料</td>
+          <td><%= @order.get_postage %></td>
+        </tr>
+        <tr>
+          <th class="table-secondary">ご請求額</td>
+          <td><%= @order.get_total_payment %></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>

@@ -1,14 +1,16 @@
-<h1>注文履歴一覧</h1>
-<diV>
-  <table>
-    <thead>
+<div class = "d-flex justify-content-between">
+  <h4 class = "gray field m-3">注文履歴一覧</h3>
+</div>
+<div>
+  <table class = "table table-hover table-bordered" >
+    <thead class = "table-secondary">
       <tr>
-        <td>注文日</td>
-        <td>配送先</td>
-        <td>注文商品</td>
-        <td>支払金額</td>
-        <td>ステータス</td>
-        <td>注文詳細</td>
+        <th>注文日</th>
+        <th>配送先</th>
+        <th>注文商品</th>
+        <th>支払金額</th>
+        <th>ステータス</th>
+        <th>注文詳細</th>
       </tr>
     </thead>
     <tbody>
@@ -27,9 +29,9 @@
         </td>
         <td><%= f.get_payment %></td>
         <td><%= Order.order_statuses_i18n[f.order_status]  %></td>
-        <td><%= link_to '表示する', order_path(f.id), method: :get %></td>
+        <td><%= link_to '表示する', order_path(f.id), method: :get, class: "btn btn-primary" %></td>
       </tr>
       <% end %>
     </tbody>
   </table>
-</diV>
+</div>
