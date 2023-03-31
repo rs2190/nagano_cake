@@ -1,8 +1,13 @@
-<h2>商品一覧</h2>
+<div class = "d-flex justify-content-between">
+  <h4 class = "gray field m-3">商品一覧</h4>
+  <%= link_to new_admin_item_path, method: :get do%>
+    <i class="fas fa-plus-circle fa-lg"></i>
+  <% end %>
+</div>
 
-<diV>
-  <table>
-    <thead>
+<div>
+   <table class = "table" >
+    <thead class = "table-secondary">
       <tr>
         <th>商品ID</th>
         <th>商品名</th>
@@ -23,14 +28,16 @@
         <td><%= f.get_price_delimited %></td>
         <td><%= f.genre.name %></td>
         <% if f.is_active %>
-          <td class = "is_active_true">販売中</td>
+          <td class = "text-success"><p class="font-weight-bold">販売中</p></td>
         <% else %>
-          <td class = "is_active_false">販売停止中</td>
+         <td class = "text-secondary"><p class="font-weight-bold">販売停止中</p></td>
         <% end %>
       </tr>
       <% end %>
     </tbody>
   </table>
-</diV>
+</div>
 
-<%= paginate @items %>
+<div class = "d-flex justify-content-center">
+  <%= paginate @items %>
+</div>
