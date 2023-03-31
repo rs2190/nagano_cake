@@ -39,7 +39,8 @@ class Admin::CustomersController < ApplicationController
     # customerモデルを更新
     if @customer.update(customer_params)
 
-      # 更新成功後、顧客詳細画面へ遷移
+      # 更新成功後、
+      notice("顧客情報を更新しました")
       redirect_to admin_customer_path(@customer.id)
 
     else

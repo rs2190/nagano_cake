@@ -1,6 +1,6 @@
 <div class = "d-flex justify-content-between">
   <h4 class = "gray field m-3">商品一覧</h4>
-  <%= link_to new_admin_item_path, method: :get do%>
+  <%= link_to new_admin_item_path, method: :get do %>
     <i class="fas fa-plus-circle fa-lg"></i>
   <% end %>
 </div>
@@ -28,7 +28,7 @@
         <td><%= f.get_price_delimited %></td>
         <td><%= f.genre.name %></td>
         <% if f.is_active %>
-          <td class = "text-success"><p class="font-weight-bold">販売中</p></td>
+         <td class = "text-success"><p class="font-weight-bold">販売中</p></td>
         <% else %>
          <td class = "text-secondary"><p class="font-weight-bold">販売停止中</p></td>
         <% end %>

@@ -38,6 +38,7 @@ class Admin::ItemsController < ApplicationController
 
       if @item.save
 
+        notice("商品を登録しました。")
         redirect_to admin_items_path
 
       else
@@ -75,6 +76,7 @@ class Admin::ItemsController < ApplicationController
 
     if @item.update(item_param)
 
+      notice("商品の情報を更新しました。")
       redirect_to admin_items_path
 
     else

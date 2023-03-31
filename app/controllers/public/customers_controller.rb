@@ -54,7 +54,7 @@ class Public::CustomersController < ApplicationController
     # ログアウト
     reset_session
 
-    flash[:notice] = "退会完了いたしました。またのご利用お待ちしております。"
+    notice("退会完了いたしました。またのご利用お待ちしております。")
     redirect_to root_path
 
   end

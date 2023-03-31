@@ -1,8 +1,9 @@
-<h2>会員一覧</h2>
-
-<diV>
-  <table>
-    <thead>
+<div class = "d-flex justify-content-between">
+  <h4 class = "gray field m-3">会員一覧</h4>
+</div>
+<div>
+  <table class = "table" >
+    <thead class = "table-secondary">
       <tr>
         <th>会員ID</th>
         <th>氏名</th>
@@ -21,14 +22,15 @@
         </td>
         <td><%= f.email %></td>
         <% if f.is_deleted %>
-          <td class = "is_deleted_true">退会</td>
+          <td class = "text-secondary"><p class="font-weight-bold">退会</p></td>
         <% else %>
-          <td class = "is_deleted_false">有効</td>
+          <td class = "text-success"><p class="font-weight-bold">有効</p></td>
         <% end %>
       </tr>
       <% end %>
     </tbody>
   </table>
 </diV>
-
-<%= paginate @customers %>
+<div class = "d-flex justify-content-center">
+  <%= paginate @customers %>
+</div>
