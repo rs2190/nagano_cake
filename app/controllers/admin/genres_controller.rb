@@ -1,7 +1,7 @@
 class Admin::GenresController < ApplicationController
 
   # [Add] 2023/03/06 配送先の削除実装
-  before_action :authenticate_admin!, only: [:index, :edit]
+  before_action :authenticate_admin!
 
   # ジャンル管理画面(一覧・追加を兼ねる)
   def index
@@ -22,11 +22,12 @@ class Admin::GenresController < ApplicationController
     @genre = Genre.new(genre_param)
 
     if @genre.save
-
+      notice("ジャンルを追加しました。")
       redirect_to admin_genres_path
 
     else
 
+      @genres = genre_all_asc
       render :index
 
     end
@@ -51,6 +52,7 @@ class Admin::GenresController < ApplicationController
 
     if @genre.update(genre_param)
 
+      notice("ジャンル名を更新しました。")
       redirect_to admin_genres_path
 
     else

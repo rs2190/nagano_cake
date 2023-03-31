@@ -16,8 +16,8 @@
     </div>
     <main>
       <div class="container" style="margin-top: 20px;">
-        <p id="notice"><%= flash[:notice] %></p>
-        <p id="alert"><%= flash[:alert] %></p>
+        <p class ="notice text-success"><%= flash[:notice] %></p>
+        <p class ="alert  text-danger"><%= flash[:alert] %></p>
         <%= yield %>
       </div>
     </main>

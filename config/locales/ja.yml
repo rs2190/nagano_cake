@@ -71,6 +71,8 @@
           introduction: "商品説明"
           genre_id: "ジャンル"
           price: "税抜価格"
+        genre:
+          name: "ジャンル名"
 
     # バリデーションエラー
     errors:

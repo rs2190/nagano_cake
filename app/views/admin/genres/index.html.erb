@@ -1,6 +1,19 @@
-<h2>ジャンル一覧・追加</h2>
+<div class = "d-flex justify-content-between m-3">
+  <h4 class = "gray">ジャンル一覧・追加</h4>
+</div>
 
 <%= form_with model: @genre, url: admin_genres_path, method: :post do |f| %>
+<% if @genre.errors.any? %>
+<div id="error_explanation">
+  <h3><%= @genre.errors.count %> 個のエラーが発生しました。</h3>
+  <ul>
+  <% @genre.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+  <% end %>
+  </ul>
+</div>
+<% end %>
+
 <div>
   <table>
     <tbody>
@@ -13,22 +26,22 @@
   </table>
 </div>
 <% end %>
-
-<diV>
-  <table>
-    <thead>
-      <tr>
-        <th>ジャンル</th>
-        <th></th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @genres.each do |g| %>
-      <tr>
-        <td><%= g.name %></td>
-        <td><%= link_to '編集する', edit_admin_genre_path(g.id) %></td>
-      </tr>
-      <% end %>
-    </tbody>
-  </table>
-</diV>
+<div class = "row mt-4">
+  <div>
+    <table class = "table" >
+      <thead class = "table-secondary">
+        <tr>
+          <th colspan = "2">ジャンル</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @genres.each do |g| %>
+        <tr>
+          <td><%= g.name %></td>
+          <td><%= link_to '編集する', edit_admin_genre_path(g.id), class:"btn btn-success" %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+    </div>
+</div>

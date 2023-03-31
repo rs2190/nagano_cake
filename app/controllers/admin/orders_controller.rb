@@ -15,6 +15,7 @@ class Admin::OrdersController < ApplicationController
 
     @order  = order_find
     @order.update(order_param)
+    notice("注文ステータスを更新しました。")
     redirect_to admin_order_path
 
   end

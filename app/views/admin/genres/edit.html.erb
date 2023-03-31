@@ -1,6 +1,19 @@
-<h2>ジャンル編集</h2>
+<div class = "d-flex justify-content-between m-3">
+  <h4 class = "gray">ジャンル編集</h4>
+</div>
 
 <%= form_with model: @genre, url: admin_genre_path(@genre.id), method: :patch do |f| %>
+<% if @genre.errors.any? %>
+<div id="error_explanation">
+  <h3><%= @genre.errors.count %> 個のエラーが発生しました。</h3>
+  <ul>
+  <% @genre.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+  <% end %>
+  </ul>
+</div>
+<% end %>
+
 <div>
   <table>
     <tbody>

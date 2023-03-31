@@ -9,6 +9,7 @@ class Admin::OrderDetailsController < ApplicationController
     @orderdetail = OrderDetail.find(params[:id])
     @orderdetail.update(order_details_param)
 
+    notice("対象商品の製作ステータスを更新しました。")
     redirect_to admin_order_path(@orderdetail.order_id)
 
   end
