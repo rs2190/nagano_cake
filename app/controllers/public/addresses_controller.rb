@@ -34,6 +34,7 @@ class Public::AddressesController < ApplicationController
     if @address.save
 
       # 成功時
+      notice("入力した配送先を登録しました。")
       redirect_to addresses_path
 
     else
@@ -53,6 +54,7 @@ class Public::AddressesController < ApplicationController
     if @address.update(address_params)
 
       # 成功時
+      notice("対象の配送先を変更しました。")
       redirect_to addresses_path
     else
 
@@ -68,6 +70,7 @@ class Public::AddressesController < ApplicationController
 
      address = address_find
      address.destroy
+     notice("対象の配送先を削除しました。")
      redirect_to addresses_path
 
   end
