@@ -25,7 +25,7 @@
 
 ### logo
 - https://www.shopify.com/jp/tools/logo-maker
--
+
 ### インストール　git clone後の処理
 - $ git clone git@github.com:rs2190/nagano_cake.git
 - $ cd nagano_cake
