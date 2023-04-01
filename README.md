@@ -2,10 +2,13 @@
 
 ## 就業両立コース(クラウド必須)_応用知識学習フェーズver1.3 実装
 
+## nagano_cake
+長野県にある小さな洋菓子店「ながのCAKE」の商品を通販するためのECサイト開発。
+
 ### rubyバージョン
 - ruby 3.1.2p20 (2022-04-12 revision 4491bb740a) [x86_64-linux]
 
-### railsバージョン
+###  フレームワーク railsバージョン
 - Rails 6.1.7.2
 
 ### Gemfile (bundle install)
@@ -22,3 +25,13 @@
 
 ### logo
 - https://www.shopify.com/jp/tools/logo-maker
+-
+### インストール　git clone後の処理
+$ git clone git@github.com:rs2190/nagano_cake.git
+$ cd nagano_cake
+$ bundle install
+$ yarn install
+$ rails webpacker:install
+$ rails webpacker:compile
+$ rails db:migrate
+$ rails db:seeds
