@@ -2,14 +2,17 @@
   <table>
     <thead>
       <tr>
-        <th>ジャンル検索</th>
+        <th>
+          ジャンル検索<br>
+          (※リンクのみ)
+        </th>
       </tr>
     </thead>
     <tbody>
       <% genres.each do |g| %>
       <tr>
         <td>
-          <%= link_to items_path(g.id)  do %>
+          <%= link_to do %>
             <%= g.name %>
           <% end %>
         </td>

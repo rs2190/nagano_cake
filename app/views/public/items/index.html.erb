@@ -1,22 +1,22 @@
-<div class = "items_main">
+<div class = "row">
     <%= render 'genres_sidebar', genres: @genres %>
-  <diV>
-    <h2>商品一覧</h2>
+  <div class ="offset-1 col-md-4">
+    <h2>商品一覧 (全<%= @items_count %>件)</h2>
       <table>
         <tbody>
           <% @items.each do |f| %>
           <tr>
             <td>
               <%= link_to item_path(f.id) do %>
-                <%= image_tag f.get_image(100,100) %>
+                <%= image_tag f.get_image(100,100) %><br>
               <% end %>
+              <strong><%= f.name %></strong><br>
+               <strong>￥<%= f.get_tax_included_price_delimited %> </strong>
             </td>
-            <td><%= f.name %></td>
-            <td>￥<%= f.get_tax_included_price_delimited %></td>
           </tr>
           <% end %>
         </tbody>
       </table>
       <%= paginate @items %>
-  </diV>
+  </div>
 </div>

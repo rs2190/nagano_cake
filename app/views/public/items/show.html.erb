@@ -1,16 +1,16 @@
-<div class = "items_main">
+<div class = "row">
     <%= render 'genres_sidebar', genres: @genres %>
   <div class = "items_image">
     <%= image_tag @item.get_image(250,250) %>
   </div>
-  <div class = "items_area">
+  <div class = "items_area offset-1">
     <%= form_with model: @cart_item, url: cart_items_path, method: :post do |f| %>
     <%= f.hidden_field :item_id, :value => @item.id %>
     <%= f.hidden_field :amount, :value => @cart_item.amount %>
     <table>
       <tbody>
         <tr>
-          <td><%= @item.name %></td>
+          <td><strong><%= @item.name %></strong></td>
         </tr>
         <tr>
           <td><%= @item.introduction %></td>
@@ -18,15 +18,15 @@
         <tr>
           <td><%= @item.genre.name %></td>
         </tr>
-        <tr>
-          <td>￥ <%= @item.get_tax_included_price_delimited %> (税込)</td>
+        <tr >
+          <td><strong>￥ <%= @item.get_tax_included_price_delimited %> </strong>(税込)</td>
         </tr>
       </tbody>
     </table>
-        <div>
-          <%= f.select :amount, *[1..10], include_blank: '-- 個数選択 --'  %>
-          <%= f.submit 'カートに入れる', class:"btn btn-success" %>
-        </div>
+      <div class ="m-1">
+        <%= f.select :amount, *[1..10], include_blank: '個数選択'  %>
+        <%= f.submit 'カートに入れる', class:"btn btn-success" %>
+      </div>
     <% end %>
   </div>
 </div>
