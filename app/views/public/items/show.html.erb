@@ -7,28 +7,22 @@
     <%= form_with model: @cart_item, url: cart_items_path, method: :post do |f| %>
     <%= f.hidden_field :item_id, :value => @item.id %>
     <%= f.hidden_field :amount, :value => @cart_item.amount %>
-    <table>
-      <tbody>
-        <tr>
-          <td><strong><%= @item.name %></strong></td>
-        </tr>
-        <tr>
-          <td><%= @item.introduction %></td>
-        </tr>
-        <tr>
-          <td><%= @item.genre.name %></td>
-        </tr>
-        <tr >
-          <td><strong>￥ <%= @item.get_tax_included_price_delimited %> </strong>(税込)</td>
-        </tr>
-      </tbody>
-    </table>
-      <div class ="m-1">
+    <div>
+      <div class ="mt-2">
+        <h4><%= @item.name %></h4>
+      </div>
+      <div class ="mt-2">
+        <%= @item.introduction %>
+      </div>
+      <div class ="mt-2">
+        <strong>￥ <%= @item.get_tax_included_price_delimited %> </strong>(税込)
+      </div>
+      <div class ="mt-5">
         <%= f.select :amount, *[1..10], include_blank: '個数選択'  %>
         <%= f.submit 'カートに入れる', class:"btn btn-success" %>
       </div>
     <% end %>
+    </div>
   </div>
 </div>
-<diV>
 

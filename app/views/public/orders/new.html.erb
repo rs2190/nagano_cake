@@ -43,7 +43,7 @@
     <div>
       <%= f.radio_button :select_address, 1  %>
       <%= f.label :select_address_addresses, "登録済住所から選択" %><br>
-      <%= f.select :address_id, options_from_collection_for_select(Address.all, :id, :get_address_display) %></%>
+      <%= f.select :address_id, options_from_collection_for_select(Address.where(customer_id: current_customer.id), :id, :get_address_display) %></%>
     </div>
   </div>
    <div class = "field m-3">

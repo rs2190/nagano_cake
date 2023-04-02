@@ -18,3 +18,18 @@
 
 /*  width: 20%;*/
 /*}*/
+
+.items_image {
+
+  width: 40%; /* 横幅40% */
+}
+
+.genres_sidebar {
+
+  width: 20%; /* 横幅30% */
+}
+
+.items_area {
+
+  width: 60%; /* 横幅70% */
+}

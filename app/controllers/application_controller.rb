@@ -19,7 +19,10 @@ class ApplicationController < ActionController::Base
       # 顧客のマイページ
       # [Update] 2023/03/01 顧客のマイページのrouting修正
       # show_customers_path
-      notice("ようこそ!　ここがあなたのマイページです。")
+      
+      if 
+      
+      notice("登録完了しました。ようこそ!　ここがあなたのマイページです。")
       my_page_path
     end
   end
@@ -128,6 +131,13 @@ class ApplicationController < ActionController::Base
   def notice(word)
 
     flash[:notice] = word
+
+  end
+
+  # フラッシュメッセージを定義(正常)
+  def notice2(word)
+
+    flash[:notice2] = word
 
   end
 
