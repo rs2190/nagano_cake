@@ -39,7 +39,7 @@ class Admin::ItemsController < ApplicationController
       if @item.save
 
         notice("商品を登録しました。")
-        redirect_to admin_items_path
+        redirect_to admin_item_path(@item.id)
 
       else
 

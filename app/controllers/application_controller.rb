@@ -24,6 +24,20 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  # サインアウト後の遷移
+  def after_sign_out_path_for(resource)
+
+     # 登録したモデル
+    case resource
+    # Admins(管理者)
+    when :admin then
+      new_admin_session_path
+    # Customers(ユーザー)
+    when :customer then
+      root_path
+    end
+  end
+
   protected
 
   # deviseのストロングパラメータ。

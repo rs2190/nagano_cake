@@ -33,5 +33,5 @@
 - $ yarn install
 - $ rails webpacker:install
 - $ rails webpacker:compile
-- $ rails db:migrate
-- $ rails db:seeds
+- $ rails db:migrate (rake db:migrate:reset)
+- $ rails db:seed
