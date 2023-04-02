@@ -1,50 +1,38 @@
-<div class="container takasa">
-  <div class="row">
-    <!-- ジャンル検索サイドバー / パーシャル表示 -->
+<div class="row">
   	<%= render 'public/items/genres_sidebar', genres: @genres %>
-
-    <div class="col-xs-9">
-      <!-- 画像背景 -->
-  		<div class="bg_top">
-        <!-- 白背景/サイト説明文 -->
-  			<div class="bg_top2">
-  			  <p class="font-text">
+  <div class="offset-1">
+  	<div>
+  		<div class="jumbotron">
+  			<div>
+  			 <p>
   			  	ようこそ、NaganoCakeへ！<br>
             このサイトは、ケーキ販売のECサイトになります。<br>
             会員でない方も商品の閲覧はできますが、<br>
             購入には会員登録が必要になります。
           </p>
-  			</div>
+  			 </div>
   		</div>
-      <!-- オススメ商品表示 -->
-      <br>
-  		<h4 class="recommendation">新着商品</i></h4><br>
-  		<div class="row">
-
-
-        <div id="multiple-items">
+  	</div>
+  	<h4>新着商品</h4>
+  	<div class="row">
+      <div class ="d-flex justify-content-between flex-wrap">
         <% @items.each do |f| %>
-          <div class="recommendation-items">
+          <div>
             <%= link_to item_path(f.id) do %>
               <%= image_tag f.get_image(100,100) %><br>
             <% end %>
-            <p><%= f.name %></p>
-            <p>￥<%= f.get_tax_included_price_delimited %></p>
+            <%= f.name %><br>
+            ￥<%= f.get_tax_included_price_delimited %>
           </div>
         <% end %>
-　　　　　</div>
-        </div>
+　　　　</div>
       </div>
-  	</div>
-
-  	<div class="row">
-  	  <div class="col-xs-9"></div>
-  	  <div class="col-xs-2">
-  	    <p><%= link_to "すべての商品を見る＞", items_path %></p>
-  	  </div>
     </div>
-
-  </div>
+  	</div>
+  	<div class ="d-flex justify-content-center">
+  	   <%= link_to "すべての商品を見る＞", items_path %>
+  	 </div>
+</div>
 
 
 

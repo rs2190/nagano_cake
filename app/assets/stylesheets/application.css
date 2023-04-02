@@ -14,44 +14,7 @@
  *= require_self
  */
 
-thead {
-  background-color: #dcdcdc
+/*.genres_sidebar {*/
 
-}
-
-[class^="is_"] {
-
-  font-weight: bolder
-}
-
-.is_deleted_true, .is_active_false {
-
-  color: grey
-}
-
-.is_deleted_false, .is_active_true {
-
-  color: limegreen
-}
-
-.items_main {
-
-  width: 100%; /* 横幅100% */
-  display: flex;
-
-}
-
-.items_image {
-
-  width: 40%; /* 横幅40% */
-}
-
-.genres_sidebar {
-
-  width: 20%; /* 横幅30% */
-}
-
-.items_area {
-
-  width: 60%; /* 横幅70% */
-}
+/*  width: 20%;*/
+/*}*/
