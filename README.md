@@ -22,7 +22,6 @@
 - yarn add jquery bootstrap@4.5 popper.js
 - yarn add @fortawesome/fontawesome-free@5.15.4
 
-
 ### logo
 - https://www.shopify.com/jp/tools/logo-maker
 
@@ -35,3 +34,6 @@
 - $ rails webpacker:compile
 - $ rails db:migrate (rake db:migrate:reset)
 - $ rails db:seed
+
+###　実装者
+- 鈴木 龍

@@ -27,6 +27,13 @@ class Public::SessionsController < Devise::SessionsController
   #   devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
   # end
 
+  # サインインの処理
+  def after_sign_in_path_for(resource)
+
+    notice("ログイン完了しました。こんにちは！本日もよろしくお願いいたします。")
+    root_path
+
+  end
 
   protected
 
@@ -40,9 +47,10 @@ class Public::SessionsController < Devise::SessionsController
     ## 取得したアカウントのパスワードと入力されたパスワードが一致してるかを判別
     if @customer.valid_password?(params[:customer][:password]) && @customer.is_deleted
       ##  trueだった場合、退会しているのでサインアップ画面に遷移する
+      alert("入力したメールアドレスは、退会しているため新規登録をお願いいたします。")
       redirect_to new_customer_registration_path
     end
-  
+
   end
 
 

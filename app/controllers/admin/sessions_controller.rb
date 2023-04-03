@@ -26,4 +26,13 @@ class Admin::SessionsController < Devise::SessionsController
   #   devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
   # end
 
+  # サインイン後の遷移
+  def after_sign_in_path_for(resource)
+
+    # 管理者トップページ(注文履歴一覧)
+    notice("お疲れ様です!　本日も一日頑張りましょう。")
+    admin_home_top_path
+
+  end
+
 end

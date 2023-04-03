@@ -4,29 +4,6 @@ class ApplicationController < ActionController::Base
 
   before_action :configure_permitted_parameters, if: :devise_controller?
 
-  # サインイン後の遷移
-  def after_sign_in_path_for(resource)
-
-    # 登録したモデル
-    case resource
-    # Admins(管理者)
-    when Admin then
-      # 管理者トップページ(注文履歴一覧)
-      notice("お疲れ様です!　本日も一日頑張りましょう。")
-      admin_home_top_path
-    # Customers(ユーザー)
-    when Customer then
-      # 顧客のマイページ
-      # [Update] 2023/03/01 顧客のマイページのrouting修正
-      # show_customers_path
-      
-      if 
-      
-      notice("登録完了しました。ようこそ!　ここがあなたのマイページです。")
-      my_page_path
-    end
-  end
-
   # サインアウト後の遷移
   def after_sign_out_path_for(resource)
 
