@@ -11,6 +11,10 @@
 ###  フレームワーク railsバージョン
 - Rails 6.1.7.2
 
+### 管理者ログイン
+-email:     admin@xxxx.com
+-password:  000000
+
 ### Gemfile (bundle install)
 - devise
 - pry-rails
