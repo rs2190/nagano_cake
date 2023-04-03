@@ -28,7 +28,7 @@
             <%= g.item.name %><br>
           <% end %>
         </td>
-        <td><%= f.get_payment %></td>
+        <td><%= f.get_total_payment %></td>
         <td><%= Order.order_statuses_i18n[f.order_status]  %></td>
         <td><%= link_to '表示する', order_path(f.id), method: :get, class: "btn btn-primary" %></td>
       </tr>
