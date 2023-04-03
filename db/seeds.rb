@@ -172,7 +172,7 @@ Item.create!(
 
 # 商品画像
 
-# 用意しようとした画像は若干グレーなため。格納場所の画像を削除。使用する際は、以下の格納場所とファイル名を設定して用意すること。
+# 用意しようとした画像は若干グレーなため。格納場所の画像を削除。使用する際は、以下の格納場所とファイル名を設定して用意。
 
 # item01.image.attach(io: File.open(Rails.root.join('app/assets/images/items/item_01.jpg')), filename: 'item_01.jpg')
 # item02.image.attach(io: File.open(Rails.root.join('app/assets/images/items/item_02.jpg')), filename: 'item_02.jpg')
